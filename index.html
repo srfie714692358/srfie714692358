@@ -1,156 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="CSS/Fonts.css" />
-		<link rel="stylesheet" href="CSS/StaticStyles.css" />
-		<link rel="stylesheet" href="CSS/Header/Style.css" />
-		<link rel="stylesheet" href="CSS/Main/Style.css" />
-		<link rel="stylesheet" href="CSS/Footer/Style.css" />
-		<title>Sajjad Rafiee</title>
-	</head>
+<head>
+    <!-- Making site without React is really hard. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Sajjad Rafiee - Full Stack Developer</title>
+</head>
+<body class="bg-[#1a0505] min-h-screen text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#1a0505]/80 backdrop-blur-md shadow-lg gold-border">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold gradient-text">Sajjad Rafiee</h1>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-red-600">Home</a>
+                    <a href="skills.html" class="nav-link text-red-600">Skills</a>
+                    <a href="projects.html" class="nav-link text-red-600">Projects</a>
+                    <a href="contact.html" class="nav-link text-red-600">Contact</a>
+                    <a href="about.html" class="nav-link text-red-600">About</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-red-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="index.html" class="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30">Home</a>
+                <a href="skills.html" class="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30">Skills</a>
+                <a href="projects.html" class="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30">Projects</a>
+                <a href="contact.html" class="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30">Contact</a>
+                <a href="about.html" class="block text-red-600 w-full text-center pt-3 hover:bg-red-950/30">About</a>
+            </div>
+        </div>
+    </nav>
 
-	<body>
-		<header>
-			<a href="javascript:void(1);" onclick="HiddeShowMenu();" id="MenuIcon"><i class="fa fa-bars"></i></a>
-			<nav id="Menu">
-				<ul>
-					<li><a href="#About" onclick="HiddeShowMenu();">درباره من</a></li>
-					<li><a href="#Skills" onclick="HiddeShowMenu();">مهارت ها</a></li>
-					<li><a href="#SampleProject" onclick="HiddeShowMenu();">نمونه کارها</a></li>
-					<li><a href="#Experiences" onclick="HiddeShowMenu();">تجربیات</a></li>
-					<li><a href="#ContactUs" onclick="HiddeShowMenu();">تماس با من</a></li>
-					<li><a href="#" onclick="HiddeShowMenu();">برو بالا</a></li>
-				</ul>
-			</nav>
-		</header>
+    <!-- Hero Section -->
+    <main class="pt-24 min-h-screen page-fade-in">
+        <div class="container mx-auto px-4 py-16">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <!-- Profile Image -->
+                <div class="md:w-1/3 flex justify-center items-center">
+                    <div class="relative w-96 h-96">
+                        <div class="gradient-bg"></div>
+                        <img src="./my-image.jpg" alt="Sajjad Rafiee" 
+                             class="absolute w-full h-full rounded-full object-cover object-top border-4 border-amber-500/30 
+                                    profile-shadow float-animation hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+                
+                <!-- Description -->
+                <div class="md:w-1/2 text-center md:text-left space-y-6 z-10">
+                    <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-6">
+                        Hello, I'm Sajjad
+                    </h1>
+                    <div class="space-y-4 text-gray-700">
+                        <p class="leading-relaxed">
+                            I'm a passionate beginner Full Stack Developer with a strong foundation in modern web technologies.
+                            My journey in web development started with a deep curiosity about how websites work, leading me to
+                            explore various technologies and frameworks.
+                        </p>
+                        <p class="leading-relaxed">
+                            I specialize in React and Django, creating responsive and user-friendly web applications.
+                            My expertise includes TypeScript, Tailwind CSS, and modern UI libraries like Framer Motion and Shadcn UI.
+                        </p>
+                        <p class="leading-relaxed">
+                            Through self-learning and hands-on projects, I've developed a solid understanding of both frontend
+                            and backend development. I'm particularly proud of my projects including a Todo List application,
+                            Weather App, and a Translator Extension.
+                        </p>
+                        <p class="leading-relaxed">
+                            I'm constantly learning and expanding my skillset, staying up-to-date with the latest web technologies
+                            and best practices. My goal is to create beautiful, efficient, and user-friendly web applications.
+                        </p>
+                        <p class="leading-relaxed">
+                            When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects,
+                            and sharing my knowledge with the developer community.
+                        </p>
+                        <p class="leading-relaxed">
+                            I'm currently seeking opportunities to collaborate on exciting projects and continue growing as a developer.
+                        </p>
+                    </div>
+                    <div class="flex justify-center md:justify-start gap-6 pt-6">
+                        <a href="contact.html" 
+                           class="px-6 py-3 border-2 border-amber-500/50 text-amber-500 rounded-full hover:bg-amber-500/10 
+                                  hover:border-amber-400 transform hover:scale-105 transition-all duration-300">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-		<main>
-			<section class="Profile">
-				<img src="Images/Profile.jpg" alt="Profile" />
-				<h1>سجاد رفیعی</h1>
-				<h2>Back-End Developer</h2>
-			</section>
+    <!-- Footer -->
+    <footer class="bg-[#1a0505] gold-border text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm md:text-base">© 2024 Sajjad Rafiee. All rights reserved.</p>
+        </div>
+    </footer>
 
-			<section class="SectionBox">
-				<span class="ID" id="About"></span>
-				<div class="About">
-					<h3>درباره من :</h3>
-					<p>
-						برنامه نویس جونیور هستم با یک سال سابقه کار به صورت فریلنسری. <br />
-						به طراحی سایت، هوش مصنوعی و کلا حوزه <span class="English">Data science</span> علاقه دارم.
-					</p>
-				</div>
-				<div class="About PersonalDetail">
-					<h3>اطلاعات من :</h3>
-					<div>
-						<p>سن:</p>
-						<p>۱۸</p>
-					</div>
-					<div>
-						<p>ایمیل:</p>
-						<p class="English">SajjadRafieeTabriz@gmail.com</p>
-					</div>
-					<div>
-						<p>تلفن:</p>
-						<p>۰۹۳۰۶۰۵۸۵۱۸</p>
-					</div>
-					<div>
-						<p>محل سکونت:</p>
-						<p>تبریز</p>
-					</div>
-				</div>
-			</section>
-
-			<section class="SectionBox Skills">
-				<span class="ID" id="Skills"></span>
-				<h3>مهارت های حرفه ای</h3>
-
-				<div class="ProgressBar">
-					<h5>Python</h5>
-					<p>95%</p>
-					<div class="Progress">
-						<div style="width: 95%"></div>
-					</div>
-				</div>
-
-				<div class="ProgressBar">
-					<h5>Django</h5>
-					<p>75%</p>
-					<div class="Progress">
-						<div style="width: 75%"></div>
-					</div>
-				</div>
-
-				<div class="ProgressBar">
-					<h5>HTML</h5>
-					<p>45%</p>
-					<div class="Progress">
-						<div style="width: 45%"></div>
-					</div>
-				</div>
-
-				<div class="ProgressBar">
-					<h5>CSS</h5>
-					<p>60%</p>
-					<div class="Progress">
-						<div style="width: 60%"></div>
-					</div>
-				</div>
-			</section>
-
-			<section class="SectionBox">
-				<span class="ID" id="SampleProject"></span>
-				<h3>نمونه پروژه</h3>
-				<div class="Project">
-					<img src="Images/Screenshot from 2022-09-09 15-51-26.png" alt="" />
-					<a href="https://ytdownloader.ir" target="_blank">
-						<h4>یوتیوب دانلودر</h4>
-					</a>
-				</div>
-			</section>
-
-			<section class="SectionBox">
-				<span class="ID" id="Experiences"></span>
-				<h3>تجربیات کاری</h3>
-
-				<div class="Experience">
-					<h4><span class="English">Data science</span></h4>
-					<p>
-						فعال تو حوزه <span class="English">Data science - Time Series</span> به مدت یک سال. به عنوان اولین پروژه
-						های من برنامه هایی طراحی می کردم که عملیات لازم را روی یک سری دیتافایل ها انجام می داد. این عملیات باید به
-						صورت موازی روی یک سرور فیزیکی انجام می شد. بنابراین تجربه ی کار با کتابخانه های حوزه ی
-						<span class="English">Data science - Time Series</span> و طراحی برنامه برای سرورها را دارم.
-					</p>
-				</div>
-			</section>
-
-			<section class="SectionBox">
-				<span class="ID" id="ContactUs"></span>
-				<h3>تماس با من</h3>
-				<form action="#" method="post" class="ContactUs">
-					<div>
-						<input type="email" placeholder=" ایمیل" />
-					</div>
-					<div>
-						<input type="text" placeholder=" نام" />
-					</div>
-					<textarea rows="5" placeholder=" متن پیام"></textarea>
-					<button type="submit">ارسال</button>
-				</form>
-			</section>
-		</main>
-
-		<footer>
-			<span class="AboutDeveloper">
-				<h2>سجاد رفیعی</h2>
-				<p>تمام حقوق این سایت متعلق به سجاد رفیعی می باشد.</p>
-			</span>
-		</footer>
-
-		<script src="JS/MenuIcon.js"></script>
-		<script src="https://kit.fontawesome.com/22212ec8f3.js" crossorigin="anonymous"></script>
-	</body>
+    <script src="script.js"></script>
+</body>
 </html>

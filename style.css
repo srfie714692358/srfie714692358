@@ -1,0 +1,228 @@
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(45deg, #fbbf24, #d97706, #92400e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+/* Navigation Links */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(to right, #fbbf24, #d97706);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Gold Border */
+.gold-border {
+    position: relative;
+}
+
+.gold-border::before,
+.gold-border::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #fbbf24, transparent);
+}
+
+.gold-border::before {
+    top: -2px;
+}
+
+.gold-border::after {
+    bottom: -2px;
+}
+
+footer.gold-border::after {
+    display: none;
+}
+
+/* Profile Gradient */
+.gradient-bg {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 40%, #7f1d1d 70%, #450a0a 100%);
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+    opacity: 0.6;
+    filter: blur(40px);
+    animation: morphGradient 15s ease-in-out infinite;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+/* Profile Shadow */
+.profile-shadow {
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.3),
+                0 0 60px rgba(180, 83, 9, 0.2);
+}
+
+/* Project Cards */
+.project-card {
+    transition: all 0.3s ease;
+    background: rgba(42, 10, 10, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid #fbbf24;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: #fbbf24;
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+}
+
+/* Skill Cards */
+.skill-card {
+    background: rgba(42, 10, 10, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid #fbbf24;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: #fbbf24;
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+}
+
+/* Progress Bar */
+.progress-bar {
+    background: linear-gradient(90deg, #dc2626 0%, #f43f5e 100%);
+    transform: translateX(-100%);
+}
+
+/* Contact Form */
+.contact-form {
+    background: rgba(42, 10, 10, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid #fbbf24;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid #fbbf24;
+    background: rgba(42, 10, 10, 0.4);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+/* Social Icons */
+.social-icon {
+    background: linear-gradient(to right, #dc2626, #fb7185);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    border-color: rgba(251, 191, 36, 0.6);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.1);
+}
+
+/* Animations */
+.page-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes morphGradient {
+    0% {
+        border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+    }
+    50% {
+        border-radius: 40% 60% 30% 70% / 50% 40% 50% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+    }
+}
+
+/* Progress Bar Animation */
+@keyframes fillProgress {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-fill {
+    animation: fillProgress 1.5s ease-out forwards;
+}
+
+/* Add hover effect to skill cards */
+.skill-card:hover .progress-bar {
+    animation: fillProgress 1.5s ease-out forwards;
+} 
+
+.gold-sharp {
+    border: 1px solid #fbbf24;
+}

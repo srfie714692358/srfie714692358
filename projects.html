@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Projects - Sajjad Rafiee</title>
+</head>
+<body class="bg-[#1a0505] min-h-screen text-white">
+    <!-- Navigation with gold border -->
+    <nav class="fixed w-full z-50 bg-[#1a0505]/80 backdrop-blur-md shadow-lg gold-border">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold gradient-text">Sajjad Rafiee</h1>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-red-600">Home</a>
+                    <a href="skills.html" class="nav-link text-red-600">Skills</a>
+                    <a href="projects.html" class="nav-link text-red-600">Projects</a>
+                    <a href="contact.html" class="nav-link text-red-600">Contact</a>
+                    <a href="about.html" class="nav-link text-red-600">About</a>
+                </div>
+                <button class="md:hidden text-red-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="index.html" class="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30">Home</a>
+                <a href="skills.html" class="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30">Skills</a>
+                <a href="projects.html" class="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30">Projects</a>
+                <a href="contact.html" class="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30">Contact</a>
+                <a href="about.html" class="block text-red-600 w-full text-center pt-3 hover:bg-red-950/30">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16 page-fade-in">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center gradient-text mb-12">My Projects</h1>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Todo List Project -->
+                <a href="#" class="project-card rounded-xl overflow-hidden block">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=800" 
+                             alt="Todo List App" 
+                             class="project-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-amber-100 mb-3">Todo List Application</h3>
+                        <p class="text-red-100 mb-4">
+                            A modern todo list application with features like task categories, due dates, and priority levels.
+                            Built with React and TypeScript for the frontend, with a clean and intuitive user interface.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">React</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">TypeScript</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Translator Extension -->
+                <a href="#" class="project-card rounded-xl overflow-hidden block">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?w=800" 
+                             alt="Translator Extension" 
+                             class="project-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-amber-100 mb-3">Translator Extension</h3>
+                        <p class="text-red-100 mb-4">
+                            A browser extension that provides instant translation of selected text.
+                            Supports multiple languages and includes a history feature for previous translations.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">JavaScript</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">HTML</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">CSS</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Weather App -->
+                <a href="#" class="project-card rounded-xl overflow-hidden block">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800" 
+                             alt="Weather App" 
+                             class="project-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-amber-100 mb-3">Weather Application</h3>
+                        <p class="text-red-100 mb-4">
+                            A weather forecast application with beautiful visualizations and detailed weather information.
+                            Features include location-based weather data and 7-day forecasts.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">React</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">API Integration</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project Manager -->
+                <a href="#" class="project-card rounded-xl overflow-hidden block">
+                    <div class="overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" 
+                             alt="Project Manager" 
+                             class="project-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-amber-100 mb-3">Project Manager</h3>
+                        <p class="text-red-100 mb-4">
+                            A comprehensive project management tool with features like task tracking,
+                            team collaboration, and progress monitoring. Built with modern web technologies.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">React</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">Django</span>
+                            <span class="tech-tag px-3 py-1 rounded-full text-sm gold-sharp">PostgreSQL</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer with gold border -->
+    <footer class="bg-[#1a0505] gold-border text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm md:text-base">© 2024 Sajjad Rafiee. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
