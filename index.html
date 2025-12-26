@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="CSS/Fonts.css" />
+		<link rel="stylesheet" href="CSS/StaticStyles.css" />
+		<link rel="stylesheet" href="CSS/Header/Style.css" />
+		<link rel="stylesheet" href="CSS/Main/Style.css" />
+		<link rel="stylesheet" href="CSS/Footer/Style.css" />
+		<title>Sajjad Rafiee</title>
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:void(1);" onclick="HiddeShowMenu();" id="MenuIcon"><i class="fa fa-bars"></i></a>
+			<nav id="Menu">
+				<ul>
+					<li><a href="#About" onclick="HiddeShowMenu();">درباره من</a></li>
+					<li><a href="#Skills" onclick="HiddeShowMenu();">مهارت ها</a></li>
+					<li><a href="#SampleProject" onclick="HiddeShowMenu();">نمونه کارها</a></li>
+					<li><a href="#Experiences" onclick="HiddeShowMenu();">تجربیات</a></li>
+					<li><a href="#ContactUs" onclick="HiddeShowMenu();">تماس با من</a></li>
+					<li><a href="#" onclick="HiddeShowMenu();">برو بالا</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section class="Profile">
+				<img src="Images/Profile.jpg" alt="Profile" />
+				<h1>سجاد رفیعی</h1>
+				<h2>Back-End Developer</h2>
+			</section>
+
+			<section class="SectionBox">
+				<span class="ID" id="About"></span>
+				<div class="About">
+					<h3>درباره من :</h3>
+					<p>
+						برنامه نویس جونیور هستم با یک سال سابقه کار به صورت فریلنسری. <br />
+						به طراحی سایت، هوش مصنوعی و کلا حوزه <span class="English">Data science</span> علاقه دارم.
+					</p>
+				</div>
+				<div class="About PersonalDetail">
+					<h3>اطلاعات من :</h3>
+					<div>
+						<p>سن:</p>
+						<p>۱۸</p>
+					</div>
+					<div>
+						<p>ایمیل:</p>
+						<p class="English">SajjadRafieeTabriz@gmail.com</p>
+					</div>
+					<div>
+						<p>تلفن:</p>
+						<p>۰۹۳۰۶۰۵۸۵۱۸</p>
+					</div>
+					<div>
+						<p>محل سکونت:</p>
+						<p>تبریز</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="SectionBox Skills">
+				<span class="ID" id="Skills"></span>
+				<h3>مهارت های حرفه ای</h3>
+
+				<div class="ProgressBar">
+					<h5>Python</h5>
+					<p>95%</p>
+					<div class="Progress">
+						<div style="width: 95%"></div>
+					</div>
+				</div>
+
+				<div class="ProgressBar">
+					<h5>Django</h5>
+					<p>75%</p>
+					<div class="Progress">
+						<div style="width: 75%"></div>
+					</div>
+				</div>
+
+				<div class="ProgressBar">
+					<h5>HTML</h5>
+					<p>45%</p>
+					<div class="Progress">
+						<div style="width: 45%"></div>
+					</div>
+				</div>
+
+				<div class="ProgressBar">
+					<h5>CSS</h5>
+					<p>60%</p>
+					<div class="Progress">
+						<div style="width: 60%"></div>
+					</div>
+				</div>
+			</section>
+
+			<section class="SectionBox">
+				<span class="ID" id="SampleProject"></span>
+				<h3>نمونه پروژه</h3>
+				<div class="Project">
+					<img src="Images/Screenshot from 2022-09-09 15-51-26.png" alt="" />
+					<a href="https://ytdownloader.ir" target="_blank">
+						<h4>یوتیوب دانلودر</h4>
+					</a>
+				</div>
+			</section>
+
+			<section class="SectionBox">
+				<span class="ID" id="Experiences"></span>
+				<h3>تجربیات کاری</h3>
+
+				<div class="Experience">
+					<h4><span class="English">Data science</span></h4>
+					<p>
+						فعال تو حوزه <span class="English">Data science - Time Series</span> به مدت یک سال. به عنوان اولین پروژه
+						های من برنامه هایی طراحی می کردم که عملیات لازم را روی یک سری دیتافایل ها انجام می داد. این عملیات باید به
+						صورت موازی روی یک سرور فیزیکی انجام می شد. بنابراین تجربه ی کار با کتابخانه های حوزه ی
+						<span class="English">Data science - Time Series</span> و طراحی برنامه برای سرورها را دارم.
+					</p>
+				</div>
+			</section>
+
+			<section class="SectionBox">
+				<span class="ID" id="ContactUs"></span>
+				<h3>تماس با من</h3>
+				<form action="#" method="post" class="ContactUs">
+					<div>
+						<input type="email" placeholder=" ایمیل" />
+					</div>
+					<div>
+						<input type="text" placeholder=" نام" />
+					</div>
+					<textarea rows="5" placeholder=" متن پیام"></textarea>
+					<button type="submit">ارسال</button>
+				</form>
+			</section>
+		</main>
+
+		<footer>
+			<span class="AboutDeveloper">
+				<h2>سجاد رفیعی</h2>
+				<p>تمام حقوق این سایت متعلق به سجاد رفیعی می باشد.</p>
+			</span>
+		</footer>
+
+		<script src="JS/MenuIcon.js"></script>
+		<script src="https://kit.fontawesome.com/22212ec8f3.js" crossorigin="anonymous"></script>
+	</body>
+</html>

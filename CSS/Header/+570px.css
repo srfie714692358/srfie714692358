@@ -1,0 +1,18 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(54, 143, 185, 0.911);
+    box-shadow: 0 0 0.5vw 0.3vw rgba(0, 0, 0, 0.692);
+    z-index: 1;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------- */
+
+header li {
+    display: inline-block;
+    padding-bottom: 0.6vw;
+    margin: 1vw 1.3vw;
+    font-size: 1.7vw;
+    font-weight: bolder;
+}
