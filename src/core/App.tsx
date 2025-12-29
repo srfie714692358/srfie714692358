@@ -12,7 +12,7 @@ function App() {
 			<main className="grow flex items-center justify-center p-24 min-h-screen page-fade-in">
 				<Routes>
 					{PAGES.map((page) => (
-						<Route key={page.name} path={page.url} element={<page.component />} />
+						<Route key={page.name} path={page.url} index={page.index} element={<page.component />} />
 					))}
 				</Routes>
 			</main>

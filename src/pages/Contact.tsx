@@ -1,3 +1,5 @@
+import DATA from "@/assets/DATA";
+
 function Contact() {
 	return (
 		<div className="container mx-auto px-4">
@@ -59,41 +61,16 @@ function Contact() {
 					</form>
 
 					<div className="mt-8 flex justify-center space-x-6">
-						<a
-							href="https://github.com/srfie714692358"
-							target="_blank"
-							className="text-red-600 hover:text-amber-500 transition-colors duration-300 text-2xl"
-						>
-							<i className="fab fa-github"></i>
-						</a>
-						<a
-							href="https://linkedin.com/in/sajjad-rafiee-91294a246"
-							target="_blank"
-							className="text-red-600 hover:text-amber-500 transition-colors duration-300 text-2xl"
-						>
-							<i className="fab fa-linkedin"></i>
-						</a>
-						<a
-							href="https://www.instagram.com/srafie2004/"
-							target="_blank"
-							className="text-red-600 hover:text-amber-500 transition-colors duration-300 text-2xl"
-						>
-							<i className="fab fa-instagram"></i>
-						</a>
-						<a
-							href="https://t.me/SajjadRafieeTabriz"
-							target="_blank"
-							className="text-red-600 hover:text-amber-500 transition-colors duration-300 text-2xl"
-						>
-							<i className="fab fa-telegram"></i>
-						</a>
-						<a
-							href="https://x.com/Sajjad61837849"
-							target="_blank"
-							className="text-red-600 hover:text-amber-500 transition-colors duration-300 text-2xl"
-						>
-							<i className="fab fa-x-twitter"></i>
-						</a>
+						{DATA.socialMedia.map((link) => (
+							<a
+								key={link.name}
+								href={link.url}
+								target="_blank"
+								className="text-amber-500 hover:text-amber-700 transition-colors duration-300 text-2xl"
+							>
+								{<link.icon className="w-8 h-8 p-0.5" />}
+							</a>
+						))}
 					</div>
 				</div>
 			</div>

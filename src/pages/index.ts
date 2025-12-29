@@ -3,31 +3,39 @@ import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import About from "./About";
+import Certificates from "./Certificates";
+import DATA from "@/assets/DATA";
 
 const PAGES = [
 	{
 		name: "Home",
-		url: "/",
+		url: `${DATA.baseUrl}`,
 		component: Home,
+		index: true,
 	},
 	{
 		name: "Skills",
-		url: "/skills",
+		url: `${DATA.baseUrl}skills`,
 		component: Skills,
 	},
 	{
 		name: "Projects",
-		url: "/projects",
+		url: `${DATA.baseUrl}projects`,
 		component: Projects,
 	},
 	{
+		name: "Certificates",
+		url: `${DATA.baseUrl}certificates`,
+		component: Certificates,
+	},
+	{
 		name: "Contact",
-		url: "/contact",
+		url: `${DATA.baseUrl}contact`,
 		component: Contact,
 	},
 	{
 		name: "About",
-		url: "/about",
+		url: `${DATA.baseUrl}about`,
 		component: About,
 	},
 ];

@@ -1,0 +1,39 @@
+## Resume
+
+- [x] Convert project from vanilla to React and React Router type
+    - [x] Start project
+    - [x] Copy the necessary codes and files
+- [x] Split project to simple parts like Header, Footer, Home, Skills, Projects, Contact, About
+- [x] Add Certificate page
+- [x] Create a Data.json file to keep all my personal data
+- [x] Add social media links to Contact and About pages
+    - [x] Find social media icons
+    - [x] Social media links in the pages and Data file
+- [ ] Complete Projects page
+    - [ ] Show status of project
+    - [ ] Show used technologies by a drop down
+    - [ ] A drop down for "let's see" button by demo and repository links.
+- [ ] Implement send email logic of contact page
+    - [ ] Verify user's inputs
+    - [ ] Show error messages to user
+    - [ ] Get API key from emailjs
+    - [ ] Implement a tool for sending image to myself
+    - [ ] Show successful message
+- [ ] Find skills icons
+- [ ] Add family tools part to Skills page
+    - [ ] Find development tools icons
+    - [ ] Add family tools section to Skills page
+- [ ] Fix UI of Skills and Certificate pages
+- [ ] Implement logic of dark/light them
+    - [ ] Style of dark/light them
+    - [ ] Logic of switching
+- [ ] Add animation to setting button by Framer motion
+    - [ ] Show a box when settings icon get hover or clicked
+    - [ ] Add them change button, language selectable input, etc
+    - [ ] Save setting detail in browser's database
+- [ ] Add Framer motion to all of pages
+- [ ] Make the site to support different languages by a translate API
+    - [ ] Get an API for translating
+    - [ ] Make a tool for translating
+    - [ ] Connect the translate tool for translate site before loading
+- [ ] Add comments and documentation to project
