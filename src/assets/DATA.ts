@@ -109,23 +109,6 @@ export default {
 			technologies: [],
 		},
 	],
-	"contact-ways": [
-		{
-			name: "telegram",
-			id: "",
-			icon: null,
-		},
-		{
-			name: "linkedin",
-			id: "",
-			icon: null,
-		},
-		{
-			name: "instagram",
-			id: "",
-			icon: null,
-		},
-	],
 	socialMedia: [
 		{
 			name: "Instagram",
@@ -153,5 +136,5 @@ export default {
 			url: "https://t.me/ElshanTabriz",
 		},
 	],
-	baseUrl: "srfie714692358/",
+	baseUrl: "/",
 };

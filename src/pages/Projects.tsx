@@ -7,7 +7,7 @@ function Projects() {
 
 			<div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 				{DATA.projects.map((project) => (
-					<a href={project.demo || "#"} className="project-card rounded-xl overflow-hidden block">
+					<a key={project.name} href={project.demo || "#"} className="project-card rounded-xl overflow-hidden block">
 						<div className="overflow-hidden h-48">
 							<img src={project.image} alt={project.name} className="project-image w-full h-full object-cover" />
 						</div>

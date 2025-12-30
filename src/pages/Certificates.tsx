@@ -14,7 +14,7 @@ function Certificates() {
 
 			<div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 				{DATA.certificates.map((project) => (
-					<span className="project-card rounded-xl overflow-hidden block">
+					<span key={project.name} className="project-card rounded-xl overflow-hidden block">
 						<div className="relative overflow-hidden h-60">
 							<img src={project.image} alt={project.name} className="project-image w-full h-full object-cover" />
 							<Blur />

@@ -9,6 +9,7 @@
 - [x] Add social media links to Contact and About pages
     - [x] Find social media icons
     - [x] Social media links in the pages and Data file
+- [x] Fix the hamburger button for nav bar
 - [ ] Complete Projects page
     - [ ] Show status of project
     - [ ] Show used technologies by a drop down
