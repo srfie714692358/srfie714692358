@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import PAGES from "@/pages";
+import pages from "@/pages";
 import { MenuIcon, Settings } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/ClassUtils";
@@ -31,7 +31,7 @@ function Header() {
 						<Settings className="text-[#fbbf24]" />
 					</span>
 					<div className="hidden md:flex space-x-8">
-						{PAGES.map((page) => (
+						{pages.map((page) => (
 							<NavLink key={page.name} to={page.url} className="nav-link text-red-600">
 								{page.name}
 							</NavLink>
@@ -44,7 +44,7 @@ function Header() {
 			</div>
 			<div className={cn("md:hidden", hideMenu && "hidden")}>
 				<div className="px-2 pt-2 sm:px-3 flex flex-col items-center">
-					{PAGES.map((page) => (
+					{pages.map((page) => (
 						<NavLink
 							key={page.name}
 							to={page.url}

@@ -1,4 +1,4 @@
-import DATA from "@/assets/DATA";
+import data from "@/data";
 
 function Contact() {
 	return (
@@ -61,7 +61,7 @@ function Contact() {
 					</form>
 
 					<div className="mt-8 flex justify-center space-x-6">
-						{DATA.socialMedia.map((link) => (
+						{data.socialMedia.map((link) => (
 							<a
 								key={link.name}
 								href={link.url}

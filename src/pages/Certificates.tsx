@@ -1,4 +1,4 @@
-import DATA from "@/assets/DATA";
+import data from "@/data";
 
 type BlurProps = { text?: string | null };
 const Blur = ({ text }: BlurProps) => (
@@ -13,7 +13,7 @@ function Certificates() {
 			<h1 className="text-4xl font-bold text-center gradient-text mb-12 pb-1">My Certificates</h1>
 
 			<div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-				{DATA.certificates.map((project) => (
+				{data.certificates.map((project) => (
 					<span key={project.name} className="project-card rounded-xl overflow-hidden block">
 						<div className="relative overflow-hidden h-60">
 							<img src={project.image} alt={project.name} className="project-image w-full h-full object-cover" />

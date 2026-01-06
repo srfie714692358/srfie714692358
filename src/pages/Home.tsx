@@ -1,9 +1,9 @@
-import DATA from "@/assets/DATA";
-import PAGES from ".";
+import data from "@/data";
+import pages from ".";
 import { NavLink } from "react-router";
 
 function Home() {
-	const contactPage = PAGES.find((page) => page.name.toLowerCase().includes("contact"));
+	const contactPage = pages.find((page) => page.name.toLowerCase().includes("contact"));
 	return (
 		<div className="container mx-auto px-4 py-16">
 			<div className="flex flex-col md:flex-row items-center justify-center gap-12">
@@ -11,8 +11,8 @@ function Home() {
 					<div className="relative w-96 h-96">
 						<div className="gradient-bg"></div>
 						<img
-							src={DATA.image}
-							alt={`${DATA.name} ${DATA.family}`}
+							src={data.personal.image}
+							alt={`${data.personal.name} ${data.personal.family}`}
 							className="absolute w-full h-full rounded-full object-cover object-top border-4 border-amber-500/30 
                                     profile-shadow float-animation hover:scale-105 transition-transform duration-300"
 						/>
@@ -20,9 +20,9 @@ function Home() {
 				</div>
 
 				<div className="md:w-1/2 text-center md:text-left space-y-6 z-10">
-					<h1 className="text-4xl md:text-6xl font-bold gradient-text mb-6">Hello, I'm {DATA.name}</h1>
+					<h1 className="text-4xl md:text-6xl font-bold gradient-text mb-6">Hello, I'm {data.personal.name}</h1>
 					<div className="space-y-4 text-amber-200 font-medium">
-						{DATA.about.split("\n").map((paraph, ind) => (
+						{data.personal.about.split("\n").map((paraph, ind) => (
 							<p key={ind} className="leading-relaxed">
 								{paraph}
 							</p>

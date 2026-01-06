@@ -4,41 +4,41 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import About from "./About";
 import Certificates from "./Certificates";
-import DATA from "@/assets/DATA";
+import data from "@/data";
 
-const PAGES = [
+const pages = [
 	{
 		name: "Home",
-		url: `${DATA.baseUrl}`,
+		url: `${data.baseUrl}`,
 		component: Home,
 		index: true,
 	},
 	{
 		name: "Skills",
-		url: `${DATA.baseUrl}skills`,
+		url: `${data.baseUrl}skills`,
 		component: Skills,
 	},
 	{
 		name: "Projects",
-		url: `${DATA.baseUrl}projects`,
+		url: `${data.baseUrl}projects`,
 		component: Projects,
 	},
 	{
 		name: "Certificates",
-		url: `${DATA.baseUrl}certificates`,
+		url: `${data.baseUrl}certificates`,
 		component: Certificates,
 	},
 	{
 		name: "Contact",
-		url: `${DATA.baseUrl}contact`,
+		url: `${data.baseUrl}contact`,
 		component: Contact,
 	},
 	{
 		name: "About",
-		url: `${DATA.baseUrl}about`,
+		url: `${data.baseUrl}about`,
 		component: About,
 	},
 ];
 
-export default PAGES;
+export default pages;
 export { Home, Skills, Projects, Contact, About };

@@ -1,6 +1,6 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import PAGES from "@/pages";
+import pages from "@/pages";
 import { Route, Routes } from "react-router";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 			</header>
 			<main className="grow flex items-center justify-center p-24 min-h-screen page-fade-in">
 				<Routes>
-					{PAGES.map((page) => (
+					{pages.map((page) => (
 						<Route key={page.name} path={page.url} index={page.index} element={<page.component />} />
 					))}
 				</Routes>

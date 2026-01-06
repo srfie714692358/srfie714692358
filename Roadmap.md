@@ -10,15 +10,15 @@
     - [x] Find social media icons
     - [x] Social media links in the pages and Data file
 - [x] Fix the hamburger button for nav bar
-- [ ] Complete Projects page
-    - [ ] Show status of project
-    - [ ] Show used technologies by a drop down
-    - [ ] A drop down for "let's see" button by demo and repository links.
+- [x] Complete Projects page
+    - [x] Show status of project
+    - [x] Show used technologies by a drop down
+    - [x] A drop down for "let's see" button by demo and repository links.
 - [ ] Implement send email logic of contact page
     - [ ] Verify user's inputs
     - [ ] Show error messages to user
     - [ ] Get API key from emailjs
-    - [ ] Implement a tool for sending image to myself
+    - [ ] Implement a tool for send user's email to me
     - [ ] Show successful message
 - [ ] Find skills icons
 - [ ] Add family tools part to Skills page
