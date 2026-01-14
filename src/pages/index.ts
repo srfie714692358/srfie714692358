@@ -1,44 +1,44 @@
-import Home from "./Home";
-import Skills from "./Skills";
-import Projects from "./Projects";
-import Contact from "./Contact";
-import About from "./About";
-import Certificates from "./Certificates";
+import HomePage from "./Home";
+import SkillsPage from "./Skills";
+import ProjectsPage from "./Projects";
+import ContactPage from "./Contact";
+import AboutPage from "./About";
+import CertificatesPage from "./Certificates";
 import data from "@/data";
 
 const pages = [
 	{
 		name: "Home",
 		url: `${data.baseUrl}`,
-		component: Home,
+		component: HomePage,
 		index: true,
 	},
 	{
 		name: "Skills",
 		url: `${data.baseUrl}skills`,
-		component: Skills,
+		component: SkillsPage,
 	},
 	{
 		name: "Projects",
 		url: `${data.baseUrl}projects`,
-		component: Projects,
+		component: ProjectsPage,
 	},
 	{
 		name: "Certificates",
 		url: `${data.baseUrl}certificates`,
-		component: Certificates,
+		component: CertificatesPage,
 	},
 	{
 		name: "Contact",
 		url: `${data.baseUrl}contact`,
-		component: Contact,
+		component: ContactPage,
 	},
 	{
 		name: "About",
 		url: `${data.baseUrl}about`,
-		component: About,
+		component: AboutPage,
 	},
 ];
 
 export default pages;
-export { Home, Skills, Projects, Contact, About };
+export { HomePage as Home, SkillsPage as Skills, ProjectsPage as Projects, ContactPage as Contact, AboutPage as About };

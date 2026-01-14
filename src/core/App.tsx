@@ -9,7 +9,7 @@ function App() {
 			<header className="h-fit fixed w-full z-50">
 				<Header />
 			</header>
-			<main className="grow flex items-center justify-center p-24 min-h-screen page-fade-in">
+			<main className="grow flex items-center justify-center p-5 md:p-10 xl:p-20 min-h-screen page-fade-in">
 				<Routes>
 					{pages.map((page) => (
 						<Route key={page.name} path={page.url} index={page.index} element={<page.component />} />
