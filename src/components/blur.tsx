@@ -1,4 +1,4 @@
-import { cn } from "@/lib/ClassUtils";
+import { cn } from "@/lib/classUtils";
 
 type BlurProps = { children?: React.ReactNode; className?: string };
 const Blur = ({ children, className }: BlurProps) => (

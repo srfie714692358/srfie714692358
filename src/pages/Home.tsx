@@ -1,7 +1,7 @@
 import data from "@/data";
 import pages from ".";
 import { NavLink } from "react-router";
-import { cn } from "@/lib/ClassUtils";
+import { cn } from "@/lib/classUtils";
 
 function HomePage() {
 	return (

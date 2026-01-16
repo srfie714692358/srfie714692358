@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import pages from "@/pages";
 import { MenuIcon, Settings } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/ClassUtils";
+import { cn } from "@/lib/classUtils";
 
 function Header() {
 	const [hideMenu, setHideMenu] = useState(true);

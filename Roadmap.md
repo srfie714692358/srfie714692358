@@ -14,12 +14,12 @@
     - [x] Show status of project
     - [x] Show used technologies by a drop down
     - [x] A drop down for "let's see" button by demo and repository links.
-- [ ] Implement send email logic of contact page
-    - [ ] Verify user's inputs
-    - [ ] Show error messages to user
-    - [ ] Get API key from emailjs
-    - [ ] Implement a tool for send user's email to me
-    - [ ] Show successful message
+- [-] Implement send email logic of contact page
+    - [x] Verify user's inputs
+    - [-] Show error messages to user
+    - [x] Get API key from emailjs
+    - [x] Implement a tool for send user's email to me
+    - [-] Show successful message
 - [ ] Find skills icons
 - [ ] Add family tools part to Skills page
     - [ ] Find development tools icons
