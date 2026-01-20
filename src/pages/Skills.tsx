@@ -6,8 +6,8 @@ function SkillsPage() {
 		<div className="container mx-auto px-4 py-16">
 			<h2 className="text-4xl font-bold text-center gradient-text mb-12 pb-1">My Skills</h2>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-				{data.skills.map((skill) => (
-					<Skill skill={skill} />
+				{data.skills.map((skill, ind) => (
+					<Skill key={ind} skill={skill} />
 				))}
 			</div>
 		</div>
