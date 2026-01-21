@@ -1,20 +1,37 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import pages from "@/pages";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
+
+import { AnimatePresence } from "framer-motion";
+import PageLayout from "@/components/motion/pageLayout";
 
 function App() {
+	const location = useLocation();
+
 	return (
 		<div className="bg-[#1a0505] min-h-screen text-white">
-			<header className="h-fit fixed w-full z-50">
+			<header className="fixed w-full z-50">
 				<Header />
 			</header>
-			<main className="grow flex items-center justify-center p-5 md:p-10 xl:p-20 min-h-screen page-fade-in">
-				<Routes>
-					{pages.map((page) => (
-						<Route key={page.name} path={page.url} index={page.index} element={<page.component />} />
-					))}
-				</Routes>
+
+			<main className="grow min-h-screen p-5 md:p-10 xl:p-20 flex items-center">
+				<AnimatePresence mode="wait">
+					<Routes location={location} key={location.pathname}>
+						{pages.map((page) => (
+							<Route
+								key={page.name}
+								path={page.url}
+								index={page.index}
+								element={
+									<PageLayout>
+										<page.component />
+									</PageLayout>
+								}
+							/>
+						))}
+					</Routes>
+				</AnimatePresence>
 			</main>
 
 			<footer className="bg-[#1a0505] gold-border text-white py-8">

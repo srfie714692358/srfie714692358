@@ -1,4 +1,4 @@
-import { SocialMedia } from "@/components/SocialMedia";
+import { SocialMedia } from "@/components/socialMedia";
 import Form from "@/components/form";
 import MessageBox from "@/components/message";
 import ContactProvider from "@/contexts/contact/provider";

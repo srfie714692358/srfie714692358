@@ -1,5 +1,5 @@
 import data from "@/data";
-import { SocialMedia } from "@/components/SocialMedia";
+import { SocialMedia } from "@/components/socialMedia";
 
 function AboutPage() {
 	return (
