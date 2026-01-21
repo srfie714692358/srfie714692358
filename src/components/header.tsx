@@ -1,62 +1,80 @@
 import { NavLink } from "react-router";
 import pages from "@/pages";
 import { MenuIcon, Settings } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import useHandleOutside from "@/hooks/useHandleOutside";
+import { AnimatePresence, motion } from "framer-motion";
+import { list, listItem, listReverse } from "@/animations/list";
+import { menuVariants, headerVariants } from "@/animations/components/header";
 import { cn } from "@/lib/classUtils";
 
-function Header() {
-	const [hideMenu, setHideMenu] = useState(true);
-	const navbar = useRef<HTMLElement>(null);
-
-	useEffect(() => {
-		const handleClickOutside = (e: MouseEvent) => {
-			if (
-				navbar.current &&
-				!navbar.current.contains(e.target as Node) &&
-				!(e.target as Element).closest("button") /* ignore hamburger */
-			) {
-				setHideMenu(true);
-			}
-		};
-
-		document.addEventListener("click", handleClickOutside);
-		return () => document.removeEventListener("click", handleClickOutside);
-	}, []);
+function Header({ className }: { className?: string }) {
+	const { element: header, hide: hideMenu, setHide: setHideMenu } = useHandleOutside();
+	const style = cn(className, "w-full bg-[#1a0505]/80 backdrop-blur-md shadow-lg gold-border");
 
 	return (
-		<nav ref={navbar} className="w-full bg-[#1a0505]/80 backdrop-blur-md shadow-lg gold-border">
-			<div className="container mx-auto px-4 py-4">
-				<div className="flex justify-between items-center">
-					<span className="relative">
-						<Settings className="text-[#fbbf24]" />
-					</span>
-					<div className="hidden md:flex space-x-8">
-						{pages.map((page) => (
-							<NavLink key={page.name} to={page.url} className="nav-link text-red-600">
-								{page.name}
-							</NavLink>
-						))}
-					</div>
-					<button className="md:hidden text-red-600" onClick={() => setHideMenu((v) => !v)}>
-						<MenuIcon />
-					</button>
-				</div>
+		<motion.header ref={header} variants={headerVariants} initial="hidden" animate="visible" className={style}>
+			<div className="container mx-auto p-4">
+				<Navbar setHideMenu={setHideMenu} />
 			</div>
-			<div className={cn("md:hidden", hideMenu && "hidden")}>
-				<div className="px-2 pt-2 sm:px-3 flex flex-col items-center">
-					{pages.map((page) => (
-						<NavLink
-							key={page.name}
-							to={page.url}
-							className="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30"
-							onClick={() => setHideMenu(true)}
-						>
+			<MobileNavLinks hideMenu={hideMenu} setHideMenu={setHideMenu} />
+		</motion.header>
+	);
+}
+
+function Navbar({ setHideMenu }: { setHideMenu: (v: (prev: boolean) => boolean) => void }) {
+	return (
+		<div className="flex justify-between items-center">
+			<span className="relative">
+				<Settings className="text-[#fbbf24]" />
+			</span>
+			<motion.div variants={listReverse} initial="hidden" animate="visible" className="hidden md:flex space-x-8">
+				{pages.map((page) => (
+					<motion.span key={page.name} variants={listItem}>
+						<NavLink to={page.url} className="nav-link text-red-600">
 							{page.name}
 						</NavLink>
-					))}
-				</div>
-			</div>
-		</nav>
+					</motion.span>
+				))}
+			</motion.div>
+			<button className="md:hidden text-red-600" onClick={() => setHideMenu((v: boolean) => !v)}>
+				<MenuIcon />
+			</button>
+		</div>
+	);
+}
+
+function MobileNavLinks({ hideMenu, setHideMenu }: { hideMenu: boolean; setHideMenu: (v: boolean) => void }) {
+	return (
+		<AnimatePresence>
+			{!hideMenu && (
+				<motion.div
+					variants={menuVariants}
+					initial="hidden"
+					animate="visible"
+					exit="exit"
+					className="md:hidden overflow-hidden"
+				>
+					<motion.div
+						variants={list}
+						initial="hidden"
+						animate="visible"
+						className="px-2 pt-2 sm:px-3 flex flex-col items-center"
+					>
+						{pages.map((page) => (
+							<motion.span key={page.name} variants={listItem} className="w-full">
+								<NavLink
+									to={page.url}
+									className="block text-red-600 w-full text-center py-3 border-b border-red-900/30 hover:bg-red-950/30"
+									onClick={() => setHideMenu(true)}
+								>
+									{page.name}
+								</NavLink>
+							</motion.span>
+						))}
+					</motion.div>
+				</motion.div>
+			)}
+		</AnimatePresence>
 	);
 }
 

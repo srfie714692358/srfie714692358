@@ -1,6 +1,6 @@
 import { cn } from "@/lib/classUtils";
-import { motion, AnimatePresence } from "framer-motion";
-import { error } from "@/animations/form";
+import { motion } from "framer-motion";
+import { error, field } from "@/animations/components/form";
 import type { ChangeEvent } from "react";
 
 const fieldStyles = cn(
@@ -31,24 +31,22 @@ function Field({ title, children, required = true, onChange, value, errors = [] 
 	const hasError = errors.some((e) => e.field === title.toLowerCase());
 
 	return (
-		<div className="flex flex-col gap-2">
+		<motion.div variants={field} className="flex flex-col gap-2">
 			<label className={cn(hasError ? "text-red-400" : "text-amber-100")}>
 				{title} {required && <span className="text-red-500">*</span>}
 			</label>
 
-			<AnimatePresence>
-				{hasError && (
-					<motion.ul
-						variants={error}
-						initial="initial"
-						animate="animate"
-						exit="exit"
-						className="pl-4 text-xs text-red-400 list-disc"
-					>
-						<li>{errors.find((e) => e.field === title.toLowerCase())?.error}</li>
-					</motion.ul>
-				)}
-			</AnimatePresence>
+			{hasError && (
+				<motion.ul
+					variants={error}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+					className="pl-4 text-xs text-red-400 list-disc"
+				>
+					<li>{errors.find((e) => e.field === title.toLowerCase())?.error}</li>
+				</motion.ul>
+			)}
 
 			{children({
 				id: title.toLowerCase(),
@@ -59,7 +57,7 @@ function Field({ title, children, required = true, onChange, value, errors = [] 
 				onChange,
 				value,
 			})}
-		</div>
+		</motion.div>
 	);
 }
 

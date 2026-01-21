@@ -5,7 +5,7 @@ import { X } from "lucide-react";
 import type { MessageT } from "@/types/contactContext";
 import ContactContext from "@/contexts/contact/context";
 import { AnimatePresence } from "framer-motion";
-import { messageVariants } from "@/animations/message";
+import { messageVariants } from "@/animations/components/message";
 import { motion } from "framer-motion";
 
 export function Message({ id, title, messages, color, isMobile }: MessageT & { isMobile: () => boolean }) {

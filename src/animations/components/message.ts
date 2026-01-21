@@ -1,5 +1,5 @@
 import { type Variants } from "framer-motion";
-import { easeIn, easeOut } from "./tokens";
+import { easeIn, easeOut } from "../tokens";
 
 export const messageVariants: Variants = {
 	initial: (isMobile: boolean) => ({

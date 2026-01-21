@@ -11,9 +11,7 @@ function App() {
 
 	return (
 		<div className="bg-[#1a0505] min-h-screen text-white">
-			<header className="fixed w-full z-50">
-				<Header />
-			</header>
+			<Header className="fixed w-full z-50" />
 
 			<main className="grow min-h-screen p-5 md:p-10 xl:p-20 flex items-center">
 				<AnimatePresence mode="wait">
