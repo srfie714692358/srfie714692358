@@ -20,11 +20,12 @@
     - [x] Get API key from emailjs
     - [x] Implement a tool for send user's email to me
     - [x] Show successful message
+- [x] Add Framer motion to all of pages
+- [-] Fix UI of Skills and Certificate pages
 - [ ] Find skills icons
 - [ ] Add family tools part to Skills page
     - [ ] Find development tools icons
     - [ ] Add family tools section to Skills page
-- [ ] Fix UI of Skills and Certificate pages
 - [ ] Implement logic of dark/light them
     - [ ] Style of dark/light them
     - [ ] Logic of switching
@@ -32,7 +33,6 @@
     - [ ] Show a box when settings icon get hover or clicked
     - [ ] Add them change button, language selectable input, etc
     - [ ] Save setting detail in browser's database
-- [ ] Add Framer motion to all of pages
 - [ ] Make the site to support different languages by a translate API
     - [ ] Get an API for translating
     - [ ] Make a tool for translating

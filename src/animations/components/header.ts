@@ -17,7 +17,7 @@ export const menuVariants: Variants = {
 	visible: {
 		height: "auto",
 		opacity: 1,
-		transition: { duration: 0.35, ease: "easeIn" },
+		transition: { duration: 0.8, ease: "easeIn", type: "spring" },
 	},
 	exit: {
 		height: 0,

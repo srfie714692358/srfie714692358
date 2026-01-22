@@ -1,46 +1,61 @@
+import { list, listItem } from "@/animations/list";
 import data from "@/data";
 import type { TProject, TSkill } from "@/types";
+import { motion } from "framer-motion";
 
 function ProjectsPage() {
 	return (
 		<div className="container mx-auto px-4 py-16">
 			<h1 className="text-4xl font-bold text-center gradient-text mb-16 pb-2">My Projects</h1>
-			<div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+			<motion.div
+				variants={list}
+				initial="hidden"
+				animate="visible"
+				className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+			>
 				{data.projects.map((project) => (
 					<Project key={project.name} project={project} />
 				))}
-			</div>
+			</motion.div>
 		</div>
 	);
 }
-
 function Project({ project }: { project: TProject }) {
 	return (
-		<div className="project-card rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50">
+		<motion.div
+			variants={listItem}
+			whileHover={{ scale: 1.01 }}
+			className="project-card rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50"
+		>
 			<ProjectImage src={project.image} alt={project.name} />
 
 			<div className="p-6">
 				<h3 className="text-2xl font-bold text-amber-100 mb-3">{project.name}</h3>
+
 				<p className="text-red-100 mb-6 text-sm leading-relaxed opacity-80">{project.description}</p>
+
 				<div className="flex flex-wrap gap-3 items-center">
 					<span className="tech-tag px-4 py-1.5 rounded-full text-xs font-semibold gold-sharp text-amber-400 border border-amber-500/30">
 						{project.status}
 					</span>
+
 					<TechDropdown technologies={project.technologies} />
 					<LinksDropdown demo={project.demo} repository={project.repository} />
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
 	return (
-		<div className="overflow-hidden h-48 rounded-t-xl group/img">
-			<img
+		<div className="overflow-hidden h-48 rounded-t-xl">
+			<motion.img
 				src={src}
 				alt={alt}
-				className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110"
+				className="w-full h-full object-cover"
+				whileHover={{ scale: 1.08 }}
+				transition={{ duration: 0.5, ease: "easeOut" }}
 			/>
 		</div>
 	);

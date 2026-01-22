@@ -2,6 +2,8 @@ import data from "@/data";
 import pages from ".";
 import { NavLink } from "react-router";
 import { cn } from "@/lib/classUtils";
+import { motion } from "framer-motion";
+import { list, listItem } from "@/animations/list";
 
 function HomePage() {
 	return (
@@ -15,54 +17,67 @@ function HomePage() {
 }
 
 function ProfileImage() {
-	const imgStyles = cn(
-		"absolute object-cover object-top",
-		"w-full h-full rounded-full border-4 border-amber-500/30 ",
-		"profile-shadow float-animation",
-		"hover:scale-105 transition-transform duration-300"
+	const style = cn(
+		"absolute object-cover object-top w-full h-full rounded-full",
+		"profile-shadow border-4 border-amber-500/30"
 	);
 	return (
-		<div className="md:w-1/3 flex justify-center items-center">
+		<motion.div
+			className="md:w-1/3 flex justify-center items-center"
+			initial={{ opacity: 0, scale: 0.9 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={{ duration: 0.6, ease: "easeOut" }}
+		>
 			<div className="relative w-96 h-96">
-				<div className="gradient-bg"></div>
-				<img src={data.personal.image} alt={`${data.personal.name} ${data.personal.family}`} className={imgStyles} />
+				<div className="gradient-bg" />
+				<motion.img
+					src={data.personal.image}
+					alt={`${data.personal.name} ${data.personal.family}`}
+					className={style}
+					whileHover={{ scale: 1.05 }}
+				/>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 
 function AboutMe() {
 	return (
-		<div className="md:w-1/2 text-center md:text-left space-y-6 z-10">
-			<h1 className="text-4xl md:text-6xl font-bold gradient-text mb-6">Hello, I'm {data.personal.name}</h1>
+		<motion.div
+			className="md:w-1/2 text-center md:text-left space-y-6 z-10"
+			variants={list}
+			initial="hidden"
+			animate="visible"
+		>
+			<motion.h1 variants={listItem} className="text-4xl md:text-6xl font-bold gradient-text mb-6">
+				Hello, I'm {data.personal.name}
+			</motion.h1>
+
 			<div className="space-y-4 text-amber-200 font-medium text-justify">
-				{data.personal.about.split("\n").map((paraph, ind) => (
-					<p key={ind} className="leading-relaxed">
-						{paraph}
-					</p>
+				{data.personal.about.split("\n").map((p, i) => (
+					<motion.p key={i} variants={listItem} className="leading-relaxed">
+						{p}
+					</motion.p>
 				))}
 			</div>
 			<ContactBtn />
-		</div>
+		</motion.div>
 	);
 }
 
 function ContactBtn() {
-	const contactPage = pages.find((page) => page.name.toLowerCase().includes("contact"));
-	const btnStyles = cn(
-		"text-amber-500 px-6 py-3",
-		"border-2 border-amber-500/50 rounded-full",
-		"hover:bg-amber-500/10 hover:border-amber-400 hover:scale-105",
-		"transform transition-all duration-300"
-	);
+	const contactPage = pages.find((p) => p.name.toLowerCase().includes("contact"));
+
 	return (
-		<div className="pt-6">
+		<motion.div variants={listItem} className="pt-6">
 			{contactPage && (
-				<NavLink to={contactPage.url} className={btnStyles}>
-					Get in Touch
-				</NavLink>
+				<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-fit">
+					<NavLink to={contactPage.url} className="text-amber-500 px-6 py-3 border-2 border-amber-500/50 rounded-full">
+						Get in Touch
+					</NavLink>
+				</motion.div>
 			)}
-		</div>
+		</motion.div>
 	);
 }
 
