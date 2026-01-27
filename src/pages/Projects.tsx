@@ -1,7 +1,9 @@
-import { list, listItem } from "@/animations/list";
 import data from "@/data";
-import type { TProject, TSkill } from "@/types";
+import type { TProject } from "@/types";
+import Dropdown from "@/components/dropdown";
 import { motion } from "framer-motion";
+import { list, listItem } from "@/animations/list";
+import { cn } from "@/lib/classUtils";
 
 function ProjectsPage() {
 	return (
@@ -20,27 +22,30 @@ function ProjectsPage() {
 		</div>
 	);
 }
-function Project({ project }: { project: TProject }) {
-	return (
-		<motion.div
-			variants={listItem}
-			whileHover={{ scale: 1.01 }}
-			className="project-card rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50"
-		>
-			<ProjectImage src={project.image} alt={project.name} />
 
+function Project({ project }: { project: TProject }) {
+	const links = [
+		{ name: "Demo", url: project.demo || "#" },
+		{ name: "Repository", url: project.repository || "#" },
+	];
+
+	const cardStyle = cn(
+		"project-card rounded-xl ",
+		"bg-slate-800/50 backdrop-blur-sm",
+		"border border-slate-700/50 overflow-hidden md:overflow-visible"
+	);
+	return (
+		<motion.div variants={listItem} whileHover={{ scale: 1.01 }} className={cardStyle}>
+			<ProjectImage src={project.image} alt={project.name} />
 			<div className="p-6">
 				<h3 className="text-2xl font-bold text-amber-100 mb-3">{project.name}</h3>
-
 				<p className="text-red-100 mb-6 text-sm leading-relaxed opacity-80">{project.description}</p>
-
 				<div className="flex flex-wrap gap-3 items-center">
 					<span className="tech-tag px-4 py-1.5 rounded-full text-xs font-semibold gold-sharp text-amber-400 border border-amber-500/30">
 						{project.status}
 					</span>
-
-					<TechDropdown technologies={project.technologies} />
-					<LinksDropdown demo={project.demo} repository={project.repository} />
+					<Dropdown title="Technologies" items={project.technologies} />
+					<Dropdown title="Let's see" items={links} />
 				</div>
 			</div>
 		</motion.div>
@@ -57,67 +62,6 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
 				whileHover={{ scale: 1.08 }}
 				transition={{ duration: 0.5, ease: "easeOut" }}
 			/>
-		</div>
-	);
-}
-
-function TechDropdown({ technologies }: { technologies: TSkill[] }) {
-	return (
-		<div className="relative group/tech">
-			<span className="tech-tag cursor-pointer px-4 py-1.5 rounded-full text-xs font-semibold gold-sharp text-amber-400 border border-amber-500/30 select-none">
-				Technologies
-			</span>
-			<div className="h-0 group-hover/tech:h-60 overflow-hidden transition-all duration-700 absolute top-full left-1/2 -translate-x-1/2">
-				<ul className="mt-2 w-48 p-2 bg-[#1a0505] border border-amber-500/30 rounded-lg shadow-xl">
-					{technologies.map((tech) => (
-						<li key={tech.name} className="mb-1 last:mb-0">
-							<a
-								href={tech.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="block px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-[#2c0909] rounded transition-colors"
-							>
-								{tech.name}
-							</a>
-						</li>
-					))}
-				</ul>
-			</div>
-		</div>
-	);
-}
-
-function LinksDropdown({ demo, repository }: { demo: string | null; repository: string | null }) {
-	return (
-		<div className="relative group/links z-50">
-			<span className="tech-tag cursor-pointer px-4 py-1.5 rounded-full text-xs font-semibold gold-sharp text-amber-400 border border-amber-500/30 select-none">
-				Let's see
-			</span>
-
-			<div className="h-0 group-hover/links:h-28 overflow-hidden transition-all duration-700 absolute top-full left-1/2 -translate-x-1/2 z-50">
-				<ul className="mt-2 w-32 p-2 bg-[#1a0505] border border-amber-500/30 rounded-lg shadow-xl">
-					<li>
-						<a
-							href={demo || "#"}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="block px-3 py-2 text-sm text-center text-slate-300 hover:text-amber-400 hover:bg-[#2c0909] rounded"
-						>
-							Live Demo
-						</a>
-					</li>
-					<li>
-						<a
-							href={repository || "#"}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="block px-3 py-2 text-sm text-center text-slate-300 hover:text-amber-400 hover:bg-[#2c0909] rounded"
-						>
-							Repository
-						</a>
-					</li>
-				</ul>
-			</div>
 		</div>
 	);
 }

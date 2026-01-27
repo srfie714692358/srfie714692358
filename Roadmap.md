@@ -21,18 +21,21 @@
     - [x] Implement a tool for send user's email to me
     - [x] Show successful message
 - [x] Add Framer motion to all of pages
-- [-] Fix UI of Skills and Certificate pages
+- [x] Fix UI of Skills and Certificate pages
+    - [x] Fix certificate image's ui problem.
+    - [x] Fix skills links problem. (show links by a dropdown)
+    - [x] Add animation to dropdowns
 - [ ] Find skills icons
-- [ ] Add family tools part to Skills page
+- [ ] Add a section to Skills page to show the tools that I know.
     - [ ] Find development tools icons
-    - [ ] Add family tools section to Skills page
-- [ ] Implement logic of dark/light them
-    - [ ] Style of dark/light them
-    - [ ] Logic of switching
+    - [ ] Add tools section to Skills page
 - [ ] Add animation to setting button by Framer motion
     - [ ] Show a box when settings icon get hover or clicked
     - [ ] Add them change button, language selectable input, etc
     - [ ] Save setting detail in browser's database
+- [ ] Implement logic of dark/light them
+    - [ ] Style of dark/light them
+    - [ ] Logic of switching
 - [ ] Make the site to support different languages by a translate API
     - [ ] Get an API for translating
     - [ ] Make a tool for translating
