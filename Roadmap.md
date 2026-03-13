@@ -25,6 +25,24 @@
     - [x] Fix certificate image's ui problem.
     - [x] Fix skills links problem. (show links by a dropdown)
     - [x] Add animation to dropdowns
+- [x] Restructure project
+- [ ] Reorganize styles
+    - [x] Make a structure for css files
+    - [x] Add vars to css to make the style of app dynamic
+    - [x] Change all the styles to use custom vars
+    - [ ] Add themes
+    - [ ] Add custom utilities
+- [ ] Reorganize motions
+    - [ ] Make a structure for motion files
+    - [ ] ...
+- [ ] Clean up components
+    - [ ] Dropdown
+    - [ ] SettingBox
+- [ ] Implement change theme logic
+- [ ] Implement change language logic
+- [ ] Setting
+    - [ ] Fix style
+    - [ ] Logic
 - [ ] Find skills icons
 - [ ] Add a section to Skills page to show the tools that I know.
     - [ ] Find development tools icons
@@ -41,3 +59,135 @@
     - [ ] Make a tool for translating
     - [ ] Connect the translate tool for translate site before loading
 - [ ] Add comments and documentation to project
+
+## Finished folders and files
+
+- [x] app
+    - [x] App.tsx
+    - [x] index.tsx
+    - [x] navigation.ts
+    - [x] routes.tsx
+
+- [x] pages
+    - [x] Home
+        - [x] index.tsx
+        - [x] style.ts
+        - [x] content.ts
+        - [x] type.ts
+        - [x] motion.ts
+    - [x] Skills
+        - [x] index.tsx
+        - [x] style.ts
+        - [x] motion.ts
+        - [x] type.ts
+    - [x] Projects
+        - [x] index.tsx
+        - [x] style.ts
+        - [x] type.ts
+        - [x] content.ts
+    - [x] Certificates
+        - [x] index.tsx
+        - [x] style.ts
+        - [x] type.ts
+        - [x] content.ts
+    - [x] Contact
+        - [x] index.tsx
+    - [x] About
+        - [x] index.ts
+
+- [x] components
+    - [x] feature
+        - [x] settings
+            - [x] index.tsx
+            - [x] style.ts
+            - [x] constants.ts
+        - [x] messageBox
+            - [x] index.tsx
+            - [x] style.ts
+        - [x] socialMedia
+            - [x] index.tsx
+            - [x] style.ts
+        - [x] contactForm
+            - [x] index.tsx
+            - [x] motion.ts
+            - [x] style.ts
+            - [x] type.ts
+    - [x] ui
+        - [x] dropdown
+            - [x] index.tsx
+            - [x] style.ts
+            - [x] type.ts
+        - [x] message
+            - [x] index.tsx
+            - [x] style.ts
+            - [x] motion.ts
+        - [x] field
+            - [x] index.tsx
+            - [x] type.ts
+            - [x] style.ts
+        - [x] blur.tsx
+    - [x] layout
+        - [x] page
+            - [x] index.tsx
+            - [x] motion.ts
+            - [x] style.ts
+        - [x] header
+            - [x] index.tsx
+            - [x] motion.ts
+            - [x] style.ts
+        - [x] footer
+            - [x] index.tsx
+    - [x] provider
+        - [x] motionEle.tsx
+        - [x] index.ts
+
+- [x] store
+    - [x] useMessageStore.ts
+    - [x] useThemeStore.ts
+
+- [ ] shared
+    - [ ] motion
+        - [x] feature
+            - [x] form.ts
+        - [x] list.ts
+        - [ ] ...
+    - [ ] styles
+        - [ ] index.css
+        - [ ] themes.css
+        - [ ] themes.ts
+        - [ ] tokens.css
+        - [ ] utilities.css
+    - [x] data
+        - [x] skill.ts
+        - [x] social.ts
+        - [x] personal.ts
+    - [x] utils
+        - [x] cn.ts
+    - [x] hooks
+        - [x] index.ts
+        - [x] useClickOutOfEle.tsx
+        - [x] useResizeWindow.tsx
+        - [x] useWindowSize.tsx
+        - [x] useMediaQuery.tsx
+        - [x] useBreakpoint.ts
+        - [x] useMessage.tsx
+        - [x] useClearMessagesOnRouteChange.tsx
+        - [x] useEnforceMessageLimit.tsx
+        - [x] useFormState.tsx
+        - [x] useFormHandlers.tsx
+        - [x] useFormValidate.tsx
+    - [x] types
+        - [x] motion.Ele.ts
+        - [x] skill.ts
+        - [x] message.ts
+        - [x] theme.ts
+        - [x] sendEmail.ts
+        - [x] social.ts
+        - [x] validation.ts
+        - [x] personal.ts
+    - [x] constants
+        - [x] index.ts
+        - [x] breakpoint.ts
+        - [x] formRules.ts
+    - [x] lib
+        - [x] sendEmail.ts

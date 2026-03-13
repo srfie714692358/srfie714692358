@@ -1,0 +1,25 @@
+.dark {
+	--color-bg-page: #0b0e11;
+	--color-bg-section: #11161c;
+	--color-bg-surface: #161d26;
+
+	--color-accent-primary: #b08600;
+	--color-accent-secondary: #68520b;
+
+	--color-text-primary: #f3f4f6;
+	--color-text-secondary: #cbd5e1;
+	--color-text-muted: #94a3b8;
+
+	--color-bg-field: #0f141a;
+	--color-bg-field-hover: #11171e;
+	--color-bg-field-focus: #0f161f;
+
+	--color-border-default: #2a3441;
+	--color-border-soft: #1f2937;
+
+	--color-bg-button: #1f2937;
+	--color-bg-button-hover: #273140;
+	--color-bg-button-active: #1c222c;
+
+	--color-shadow-soft: rgba(0, 0, 0, 0.5);
+}

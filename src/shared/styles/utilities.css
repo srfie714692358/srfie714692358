@@ -1,0 +1,86 @@
+@layer utilities {
+	.autofill-reset:-webkit-autofill,
+	.autofill-reset:-webkit-autofill:hover,
+	.autofill-reset:-webkit-autofill:focus {
+		-webkit-text-fill-color: var(--color-text-secondary);
+		box-shadow: 0 0 0px 1000px var(--color-bg-field) inset;
+		transition: background-color 9999s ease-in-out 0s;
+		background-color: var(--color-bg-field) !important;
+		color: var(--color-text-secondary) !important;
+	}
+}
+
+@utility text-primary {
+	color: var(--color-text-primary);
+}
+
+@utility text-secondary {
+	color: var(--color-text-secondary);
+}
+
+@utility text-muted {
+	color: var(--color-text-muted);
+}
+
+@utility section-shadow {
+	box-shadow: 0px 0px 10px 3px var(--color-shadow-soft);
+}
+
+@utility card-shadow {
+	box-shadow: 0px 0px 15px var(--color-shadow-soft);
+}
+
+@utility profile-shadow {
+	box-shadow: 0px 0px 20px 5px var(--color-shadow-soft);
+}
+
+@utility text-gradient {
+	background-size: 200% 200%;
+	animation: gradient 6s ease infinite;
+}
+
+@utility page-title {
+	@apply text-4xl md:text-6xl font-bold mb-6 text-left;
+	@apply bg-clip-text text-transparent bg-linear-45 from-(--color-accent-primary) to-(--color-accent-secondary);
+}
+
+.nav-link {
+	position: relative;
+}
+
+.nav-link::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	height: 2px;
+	width: 0;
+	transition: width 0.4s ease;
+	background: linear-gradient(to right, var(--color-accent-primary), var(--color-accent-secondary));
+}
+
+.nav-link:hover::after {
+	width: 105%;
+}
+
+.gradient-border {
+	position: relative;
+}
+
+.gradient-border::before,
+.gradient-border::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	height: 3px;
+	width: 100%;
+	background: linear-gradient(to right, transparent, var(--color-accent-primary), transparent);
+}
+
+.gradient-border::before {
+	top: 0;
+}
+
+.gradient-border::after {
+	bottom: 0;
+}
