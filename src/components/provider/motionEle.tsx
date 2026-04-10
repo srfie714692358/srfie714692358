@@ -4,19 +4,18 @@ import type { HTMLElements } from "framer-motion";
 import { forwardRef } from "react";
 
 function createMotionEle<T extends keyof HTMLElements, R extends HTMLElement>(tagName: T) {
-	const renderEle: RenderEle<R, T> = ({ useDefault = false, ...props }, ref) => {
+	const renderEle: RenderEle<R, T> = ({ v, i, a, e, useDefault = false, ...rest }, ref) => {
 		const MotionTag = motion[tagName as keyof typeof motion] as MotionTagType<T>;
 		return (
 			<MotionTag
 				ref={ref}
-				variants={props.v}
-				initial={useDefault ? undefined : props.i || "initial"}
-				animate={useDefault ? undefined : props.a || "animate"}
-				exit={useDefault ? undefined : props.e || "exit"}
-				className={props.className}
-				{...props}
+				variants={v}
+				initial={useDefault ? undefined : i || "initial"}
+				animate={useDefault ? undefined : a || "animate"}
+				exit={useDefault ? undefined : e || "exit"}
+				{...rest}
 			>
-				{props.children}
+				{rest.children}
 			</MotionTag>
 		);
 	};
