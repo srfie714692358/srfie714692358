@@ -1,48 +1,46 @@
-import { AnimatePresence } from "framer-motion";
 import { useStore } from "zustand";
-
-import Dropdown from "@/components/ui/dropdown";
 import { SettingsIcon } from "lucide-react";
-import { MotionDiv } from "@/components/provider";
 
 import { useThemeStore } from "@/store/useThemeStore";
-import { useClickOutOfEle } from "@/shared/hooks";
-
-import { settingsStyles as styles } from "./style";
-import { settingConstants as constants } from "./constants";
-import { fadeDown } from "@/shared/motion/fade";
 import { useMediaQuery } from "@/shared/hooks";
 
-function Settings() {
-	const { ref, closed, toggle } = useClickOutOfEle<HTMLDivElement>();
-	const isMediumDevice = useMediaQuery("md");
+import { settingsStyles as styles } from "./style";
+import { settingConstants as constants } from "@/shared/constants/settings";
 
+import Popover from "@/components/ui/popover";
+import Dropdown from "@/components/ui/dropdown";
+import Modal from "@/components/ui/modal";
+import List from "@/components/ui/list";
+
+function Settings() {
 	return (
-		<div ref={ref} className="z-1">
-			<SettingsIcon className={styles.icon} onClick={toggle} />
-			<AnimatePresence>
-				{!closed && (
-					<MotionDiv v={fadeDown} className={styles.container(isMediumDevice)}>
-						<Theme />
-						<Language />
-						<Version />
-					</MotionDiv>
-				)}
-			</AnimatePresence>
-		</div>
+		<Popover trigger={<SettingsIcon />}>
+			<Theme />
+			<Language />
+			<Version />
+		</Popover>
 	);
 }
 
 function Theme() {
 	const { theme: current, setTheme } = useStore(useThemeStore);
-	const items = constants.themes.map((th) => ({ name: th, action: () => setTheme(th) }));
+	const items = constants.themes.map((th) => ({
+		content: th,
+		action: () => setTheme(th),
+		active: th == current,
+	}));
+	const isMedium = useMediaQuery("md");
 
 	return (
 		<div className={styles.item.container}>
-			<span className={styles.item.label}>Theme Mode</span>
-			<ul className="w-fit space-y-1">
-				<Dropdown text="themes" active={current} items={items} position={styles.dropdownPosition} />
-			</ul>
+			<h6 className={styles.item.label}>Theme Mode</h6>
+			{isMedium ? (
+				<Modal trigger={current} classNames={{ content: "p-0 border-0 bg-none" }}>
+					<List items={items} />
+				</Modal>
+			) : (
+				<Dropdown text={current} items={items} />
+			)}
 		</div>
 	);
 }
@@ -50,8 +48,8 @@ function Theme() {
 function Language() {
 	return (
 		<div className={styles.item.container}>
-			<span className={styles.item.label}>Language</span>
-			<span className="text-xs text-muted">En / Fa / Tr</span>
+			<h6 className={styles.item.label}>Language</h6>
+			<span className="text-muted">En / Fa / Tr</span>
 		</div>
 	);
 }
@@ -59,8 +57,8 @@ function Language() {
 function Version() {
 	return (
 		<div className={styles.item.container}>
-			<span className={styles.item.label}>Version </span>
-			<span className="text-xs text-muted font-mono">1.0.0</span>
+			<h6 className={styles.item.label}>Version </h6>
+			<span className="text-muted">1.0.0</span>
 		</div>
 	);
 }

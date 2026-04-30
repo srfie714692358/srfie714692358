@@ -38,22 +38,22 @@
 - [ ] Clean up components
     - [ ] Dropdown
     - [ ] SettingBox
-- [ ] Implement change theme logic
+- [x] Implement change theme logic
 - [ ] Implement change language logic
-- [ ] Setting
-    - [ ] Fix style
-    - [ ] Logic
+- [x] Setting
+    - [x] Fix style
+    - [x] Logic
 - [ ] Find skills icons
 - [ ] Add a section to Skills page to show the tools that I know.
     - [ ] Find development tools icons
     - [ ] Add tools section to Skills page
-- [ ] Add animation to setting button by Framer motion
-    - [ ] Show a box when settings icon get hover or clicked
+- [x] Add animation to setting button by Framer motion
+    - [x] Show a box when settings icon get hover or clicked
     - [ ] Add them change button, language selectable input, etc
     - [ ] Save setting detail in browser's database
-- [ ] Implement logic of dark/light them
-    - [ ] Style of dark/light them
-    - [ ] Logic of switching
+- [x] Implement logic of dark/light them
+    - [x] Style of dark/light them
+    - [x] Logic of switching
 - [ ] Make the site to support different languages by a translate API
     - [ ] Get an API for translating
     - [ ] Make a tool for translating
@@ -93,14 +93,13 @@
     - [x] Contact
         - [x] index.tsx
     - [x] About
-        - [x] index.ts
+        - [x] index.tsx
 
 - [x] components
     - [x] feature
         - [x] settings
             - [x] index.tsx
             - [x] style.ts
-            - [x] constants.ts
         - [x] messageBox
             - [x] index.tsx
             - [x] style.ts
@@ -113,15 +112,15 @@
             - [x] style.ts
             - [x] type.ts
     - [x] ui
-        - [x] dropdown
-            - [x] index.tsx
-            - [x] style.ts
-            - [x] type.ts
+        - [x] popover.tsx
+        - [x] modal
+        - [x] dropdown.tsx
+        - [x] list
         - [x] message
             - [x] index.tsx
             - [x] style.ts
             - [x] motion.ts
-        - [x] field
+        - [x] contactFormField
             - [x] index.tsx
             - [x] type.ts
             - [x] style.ts
@@ -163,9 +162,10 @@
         - [x] personal.ts
     - [x] utils
         - [x] cn.ts
+        - [x] validateForm.ts // I forgot to write this file's name here.
     - [x] hooks
         - [x] index.ts
-        - [x] useClickOutOfEle.tsx
+        - [x] useClickOutside.tsx
         - [x] useResizeWindow.tsx
         - [x] useWindowSize.tsx
         - [x] useMediaQuery.tsx
@@ -189,5 +189,72 @@
         - [x] index.ts
         - [x] breakpoint.ts
         - [x] formRules.ts
+        - [x] settings.ts
     - [x] lib
         - [x] sendEmail.ts
+
+## Working on style files
+
+- [x] app
+    - [x] App.tsx
+
+- [ ] pages
+    - [ ] Home
+        - [ ] index.tsx
+        - [ ] style.ts
+    - [ ] Skills
+        - [ ] index.tsx
+        - [ ] style.ts
+    - [ ] Projects
+        - [ ] index.tsx
+        - [ ] style.ts
+    - [ ] Certificates
+        - [ ] index.tsx
+        - [ ] style.ts
+    - [ ] Contact
+        - [ ] index.tsx
+    - [ ] About
+        - [ ] index.tsx
+
+- [ ] components
+    - [ ] feature
+        - [ ] settings
+            - [ ] index.tsx
+            - [ ] style.ts
+        - [x] messageBox
+            - [x] index.tsx
+            - [x] style.ts
+        - [ ] socialMedia
+            - [ ] index.tsx
+            - [ ] style.ts
+        - [ ] contactForm
+            - [ ] index.tsx
+            - [ ] style.ts
+    - [ ] ui
+        - [ ] dropdown.tsx
+        - [ ] list.tsx
+        - [ ] popover.tsx
+        - [ ] modal.tsx
+        - [x] message
+            - [x] index.tsx
+            - [x] style.ts
+        - [ ] contactFormField
+            - [ ] index.tsx
+            - [ ] style.ts
+        - [ ] blur.tsx
+    - [x] layout
+        - [x] page
+            - [x] index.tsx
+        - [x] header
+            - [x] index.tsx
+            - [x] style.ts
+        - [x] footer
+            - [x] index.tsx
+
+- [ ] shared
+    - [ ] styles
+        - [ ] index.css
+        - [ ] themes.css
+        - [ ] themes.ts
+        - [ ] tokens.css
+        - [ ] utilities.css

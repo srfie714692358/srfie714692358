@@ -19,8 +19,8 @@ function ProjectsPage() {
 
 function Project({ project }: { project: TProject }) {
 	const links = [
-		{ name: "Demo", url: project.demo || "#" },
-		{ name: "Repository", url: project.repository || "#" },
+		{ content: "Demo", url: project.demo || "#" },
+		{ content: "Repository", url: project.repository || "#" },
 	];
 
 	return (
@@ -31,8 +31,11 @@ function Project({ project }: { project: TProject }) {
 				<p className={styles.project.description}>{project.description}</p>
 				<div className="flex flex-wrap gap-3 items-center">
 					<span className={styles.project.status}>{project.status}</span>
-					<Dropdown text="Technologies" items={project.technologies} position={() => "mt-3"} />
-					<Dropdown text="Let's see" items={links} position={() => "mt-3"} />
+					<Dropdown
+						text="Technologies"
+						items={project.technologies.map((tech) => ({ ...tech, content: tech.name }))}
+					/>
+					<Dropdown text="Let's see" items={links} />
 				</div>
 			</div>
 		</MotionDiv>
