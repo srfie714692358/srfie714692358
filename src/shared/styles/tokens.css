@@ -1,37 +1,131 @@
 :root {
-	--color-bg-page: #e7e3d6;
-	--color-bg-section: #f2eddf;
-	--color-bg-surface: #fffcf2;
+	/* =========================================================
+	   BRAND IDENTITY + NEUTRAL BASE
+	========================================================= */
+	--brand-base: #be9063;
+	--brand-accent: #132226;
 
-	--color-accent-primary: #b08600;
-	--color-accent-secondary: #68520b;
+	--white: #fefefe;
+	--black: #0e0e0e;
 
-	--color-text-primary: #37311f;
-	--color-text-secondary: #635c4b;
-	--color-text-muted: #807c6b;
+	/* =========================================================
+	   SEMANTIC COLORS
+	========================================================= */
+	--success: #22c55e;
+	--warning: #f59e0b;
+	--error: #ef4444;
 
-	--color-border-default: #a87f00;
-	--color-border-soft: #edc855;
+	/* =========================================================
+	   SPACING SCALE
+	========================================================= */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 24px;
+	--space-6: 32px;
 
-	--color-bg-button: #f0e6c6;
-	--color-bg-button-hover: #f8f0d5;
-	--color-bg-button-active: #d4c79c;
+	/* =========================================================
+	   RADIUS SCALE
+	========================================================= */
+	--radius-sm: 4px;
+	--radius-md: 8px;
+	--radius-lg: 12px;
+	--radius-xl: 20px;
 
-	--color-bg-field: #fff8e1;
-	--color-bg-field-hover: #f6eed2;
-	--color-bg-field-focus: #ffffff;
+	/* =========================================================
+	   ELEVATION SYSTEM (SURFACES)
+	========================================================= */
+	--surface-0: color-mix(in srgb, var(--brand-base) 30%, var(--white));
+	--surface-1: color-mix(in srgb, var(--brand-base) 40%, var(--white));
+	--surface-2: color-mix(in srgb, var(--brand-base) 55%, var(--white));
+	--surface-3: color-mix(in srgb, var(--brand-base) 70%, var(--white));
+	--surface-4: color-mix(in srgb, var(--brand-base) 85%, var(--white));
+	--surface-5: color-mix(in srgb, var(--brand-base) 100%, var(--white));
 
-	--color-bg-success: #032e1590;
-	--color-border-success: #dcfce780;
-	--color-text-success: #032e15;
+	/* =========================================================
+	   CONTROL SYSTEM (Forms, Buttons, Dropdowns)
+	========================================================= */
+	--control-bg: color-mix(in srgb, var(--brand-base) 36%, var(--white));
+	--control-hover: color-mix(in srgb, var(--brand-base) 42%, var(--white));
+	--control-active: color-mix(in srgb, var(--brand-base) 50%, var(--white));
+	--control-disabled: color-mix(in srgb, var(--brand-base) 24%, var(--white));
 
-	--color-bg-error: #46080990;
-	--color-border-error: #fb2c3680;
-	--color-text-error:#460809;
+	/* =========================================================
+	   ACCENT SYSTEM (Primary Interactions)
+	========================================================= */
+	--accent-base: var(--brand-accent);
+	--accent-hover: color-mix(in srgb, var(--brand-accent) 90%, black);
+	--accent-active: color-mix(in srgb, var(--brand-accent) 80%, black);
+	--accent-muted: color-mix(in srgb, var(--brand-accent) 60%, var(--white));
 
-	--color-bg-info: #16245690;
-	--color-border-info: #2b7fff80;
-	--color-text-info: #dbeafe;
+	/* =========================================================
+	   TEXT SYSTEM
+	========================================================= */
+	--text-strong: var(--brand-accent);
+	--text-main: color-mix(in srgb, var(--brand-accent) 85%, var(--white));
+	--text-soft: color-mix(in srgb, var(--brand-accent) 75%, var(--white));
+	--text-muted: color-mix(in srgb, var(--brand-accent) 55%, var(--white));
+	--text-invert: var(--white);
 
-	--color-shadow-soft: rgba(104, 82, 11, 0.2);
+	/* =========================================================
+	   BORDER SYSTEM
+	========================================================= */
+	--border-soft: color-mix(in srgb, var(--brand-accent) 45%, var(--white));
+	--border-main: color-mix(in srgb, var(--brand-accent) 60%, var(--white));
+	--border-strong: color-mix(in srgb, var(--brand-accent) 80%, var(--white));
+
+	/* =========================================================
+	   SEMANTIC BACKGROUNDS
+	========================================================= */
+	--success-bg: color-mix(in srgb, var(--success) 15%, var(--white));
+	--warning-bg: color-mix(in srgb, var(--warning) 15%, var(--white));
+	--error-bg: color-mix(in srgb, var(--error) 15%, var(--white));
+
+	/* =========================================================
+	   INTERACTIVE STATE TOKENS
+	========================================================= */
+	--state-hover-opacity: 0.15;
+	--state-active-opacity: 0.22;
+	--state-disabled-opacity: 0.45;
+
+	--focus-ring: color-mix(in srgb, var(--accent-base) 60%, var(--white));
+	--error-ring: color-mix(in srgb, var(--error) 60%, var(--white));
+
+	/* =========================================================
+	   SHADOW SYSTEM
+	========================================================= */
+	--shadow-glow-sm: 0 0 3px rgb(0 0 0 / 0.1);
+	--shadow-glow-md: 0 0 6px rgb(0 0 0 / 0.15);
+	--shadow-glow-lg: 0 0 12px rgb(0 0 0 / 0.2);
+	--shadow-glow-xl: 0 0 24px rgb(0 0 0 / 0.25);
+
+	/* =========================================================
+	   Z-INDEX LAYERS
+	========================================================= */
+	--z-base: 0;
+	--z-header: 100;
+	--z-popover: 500;
+	--z-modal: 1000;
+	--z-toast: 2000;
+}
+
+/* =========================================================
+   DARK MODE OVERRIDES
+   ========================================================= */
+.dark {
+	--surface-0: color-mix(in srgb, var(--brand-base) 90%, black);
+	--surface-1: color-mix(in srgb, var(--brand-base) 75%, black);
+	--surface-2: color-mix(in srgb, var(--brand-base) 60%, black);
+	--surface-3: color-mix(in srgb, var(--brand-base) 45%, black);
+	--surface-4: color-mix(in srgb, var(--brand-base) 35%, black);
+
+	--text-main: color-mix(in srgb, var(--brand-accent) 95%, black);
+	--text-soft: color-mix(in srgb, var(--brand-accent) 75%, black);
+	--text-muted: color-mix(in srgb, var(--brand-accent) 55%, black);
+
+	--control-bg: color-mix(in srgb, var(--brand-accent) 15%, black);
+	--control-hover: color-mix(in srgb, var(--brand-accent) 25%, black);
+	--control-active: color-mix(in srgb, var(--brand-accent) 35%, black);
+	--control-border: color-mix(in srgb, var(--brand-accent) 60%, black);
 }

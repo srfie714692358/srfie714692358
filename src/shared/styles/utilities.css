@@ -1,86 +1,418 @@
-@layer utilities {
-	.autofill-reset:-webkit-autofill,
-	.autofill-reset:-webkit-autofill:hover,
-	.autofill-reset:-webkit-autofill:focus {
-		-webkit-text-fill-color: var(--color-text-secondary);
-		box-shadow: 0 0 0px 1000px var(--color-bg-field) inset;
-		transition: background-color 9999s ease-in-out 0s;
-		background-color: var(--color-bg-field) !important;
-		color: var(--color-text-secondary) !important;
+/* =========================================================
+   DESIGN UTILITIES
+   Built on top of tokens.css
+   - Surfaces
+   - Controls
+   - Accent & semantic backgrounds
+   - Borders
+   - State overlays
+   - Focus rings
+   - Elevation (shadows)
+   - Z-index layers
+   - Typography colors
+   ========================================================= */
+
+/* =========================================================
+   SURFACE UTILITIES
+   Map directly to the surface elevation scale
+   ---------------------------------------------------------
+   Use:
+   - bg-surface-0 → page / app root backgrounds
+   - bg-surface-1 → main layout sections
+   - bg-surface-2 → cards / panels / containers
+   - bg-surface-3 → floating panels (menus, dropdowns)
+   - bg-surface-4 → dialogs, drawers
+   - bg-surface-5 → top-most floating UI (tooltips, special overlays)
+   ========================================================= */
+
+/* Page background / App root */
+@utility bg-surface-0 {
+	background: var(--surface-0);
+}
+
+/* Main content surfaces (sections, layout wrappers) */
+@utility bg-surface-1 {
+	background: var(--surface-1);
+}
+
+/* Cards, panels, containers */
+@utility bg-surface-2 {
+	background: var(--surface-2);
+}
+
+/* Elevated components (dropdown panels, menus, popovers) */
+@utility bg-surface-3 {
+	background: var(--surface-3);
+}
+
+/* Dialog surfaces (modals, drawers) */
+@utility bg-surface-4 {
+	background: var(--surface-4);
+}
+
+/* Highest overlay surfaces (tooltips, floating UI, special overlays) */
+@utility bg-surface-5 {
+	background: var(--surface-5);
+}
+
+/* =========================================================
+   CONTROL BACKGROUND UTILITIES
+   Neutral controls such as inputs, dropdowns, non-primary buttons
+   ---------------------------------------------------------
+   Use:
+   - bg-control → default control background
+   - bg-control-hover → hover for controls
+   - bg-control-active → pressed / active state
+   - bg-control-disabled → disabled controls
+   ========================================================= */
+
+/* Default background for controls (inputs, neutral buttons, dropdowns) */
+@utility bg-control {
+	background: var(--control-bg);
+}
+
+/* Hover background for controls */
+@utility bg-control-hover {
+	background: var(--control-hover);
+}
+
+/* Active / pressed background for controls */
+@utility bg-control-active {
+	background: var(--control-active);
+}
+
+/* Disabled control background (often combined with state-disabled) */
+@utility bg-control-disabled {
+	background: var(--control-disabled);
+}
+
+/* =========================================================
+   ACCENT & SEMANTIC BACKGROUND UTILITIES
+   For primary actions + semantic feedback
+   ---------------------------------------------------------
+   Use:
+   - bg-accent / bg-accent-hover / bg-accent-active → primary CTAs
+   - bg-success / bg-warning / bg-error → feedback containers
+   ========================================================= */
+
+/* Primary interactive surfaces (primary buttons, key actions) */
+@utility bg-accent {
+	background: var(--accent-base);
+}
+
+/* Hover state for accent surfaces */
+@utility bg-accent-hover {
+	background: var(--accent-hover);
+}
+
+/* Active / pressed accent state */
+@utility bg-accent-active {
+	background: var(--accent-active);
+}
+
+/* Muted accent background (pills, subtle highlights) */
+@utility bg-accent-muted {
+	background: var(--accent-muted);
+}
+
+/* Success feedback backgrounds (alerts, badges, inline messages) */
+@utility bg-success {
+	background: var(--success-bg);
+}
+
+/* Error feedback backgrounds (alerts, form error banners) */
+@utility bg-error {
+	background: var(--error-bg);
+}
+
+/* Warning feedback backgrounds (warnings, non-blocking alerts) */
+@utility bg-warning {
+	background: var(--warning-bg);
+}
+
+/* =========================================================
+   BORDER UTILITIES
+   Color-only utilities; pair them with a border-* size utility
+   in your framework (e.g. border, border-b, border-l, etc.)
+   ---------------------------------------------------------
+   Use:
+   - border-soft  → subtle dividers, low-emphasis containers
+   - border-main  → default borders for cards, inputs
+   - border-strong → focus outlines, high-emphasis containers
+   - border-success/error/warning → semantic borders
+   ========================================================= */
+
+/* Default borders (inputs, cards, structural separators) */
+@utility border-main {
+	border-color: var(--border-main);
+}
+
+/* Subtle borders (dividers, low priority containers) */
+@utility border-soft {
+	border-color: var(--border-soft);
+}
+
+/* Strong borders (emphasis, selection, high priority containers) */
+@utility border-strong {
+	border-color: var(--border-strong);
+}
+
+/* Success state borders (success alerts, validated inputs) */
+@utility border-success {
+	border-color: var(--success);
+}
+
+/* Warning state borders (warning alerts) */
+@utility border-warning {
+	border-color: var(--warning);
+}
+
+/* Error state borders (invalid inputs, critical alerts) */
+@utility border-error {
+	border-color: var(--error);
+}
+
+/* =========================================================
+   FOCUS & ERROR RINGS
+   Visual rings for accessibility and validation
+   ---------------------------------------------------------
+   Use:
+   - focus-ring → keyboard focus for focusable elements
+   - error-ring → validation error highlight (usually on inputs)
+   ========================================================= */
+
+/* Error focus ring (invalid inputs, error states) */
+@utility error-ring {
+	box-shadow: 0 0 0 2px var(--error-ring);
+}
+
+/* Accessible keyboard focus ring (inputs, buttons, links) */
+@utility focus-ring {
+	outline: none;
+
+	&:focus-visible {
+		box-shadow: 0 0 0 2px var(--focus-ring);
 	}
 }
 
-@utility text-primary {
-	color: var(--color-text-primary);
+/* =========================================================
+   STATE OVERLAYS (HOVER / ACTIVE / DISABLED)
+   Reusable overlays that sit on top of any background
+   ---------------------------------------------------------
+   Use:
+   - state-hover   → attach to interactive blocks for hover feedback
+   - state-active  → attach to interactive blocks for active feedback
+   - state-disabled → visual + interactive disabled behavior
+   ========================================================= */
+
+/* Hover state overlay for interactive surfaces */
+@utility state-hover {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: black;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 150ms ease;
+		border-radius: inherit;
+	}
+
+	&:hover::after,
+	&:focus::after {
+		opacity: var(--state-hover-opacity);
+	}
 }
 
-@utility text-secondary {
-	color: var(--color-text-secondary);
+/* Active / pressed state overlay for interactive surfaces */
+@utility state-active {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: black;
+		opacity: var(--state-active-opacity);
+		pointer-events: none;
+		border-radius: inherit;
+	}
 }
 
+
+/* Disabled state (reduced opacity & no interaction) */
+@utility state-disabled {
+	opacity: var(--state-disabled-opacity);
+	pointer-events: none;
+	cursor: not-allowed;
+}
+
+/* =========================================================
+   ELEVATION UTILITIES
+   Shadow depth corresponding to surface hierarchy
+   ---------------------------------------------------------
+   Use:
+   - elevation-0 → flat surfaces (page background, base sections)
+   - elevation-1 → cards / small panels
+   - elevation-2 → dropdowns / popovers
+   - elevation-3 → modal-like surfaces with emphasis
+   - elevation-4 → top-most overlays (tooltips, special layers)
+   ========================================================= */
+
+/* Flat surfaces (page background, layout containers) */
+@utility elevation-0 {
+	box-shadow: none;
+}
+
+/* Low elevation (cards, basic panels) */
+@utility elevation-1 {
+	box-shadow: var(--shadow-glow-sm);
+}
+
+/* Medium elevation (dropdowns, popovers, flyouts) */
+@utility elevation-2 {
+	box-shadow: var(--shadow-glow-md);
+}
+
+/* High elevation (modals, dialogs, important overlays) */
+@utility elevation-3 {
+	box-shadow: var(--shadow-glow-lg);
+}
+
+/* Maximum elevation (tooltips, highest overlays) */
+@utility elevation-4 {
+	box-shadow: var(--shadow-glow-xl);
+}
+
+/* =========================================================
+   Z-INDEX LAYERS
+   Semantic z-index helpers aligned with tokens
+   ---------------------------------------------------------
+   Use:
+   - z-base    → default content
+   - z-header  → sticky headers, navigation
+   - z-popover → popovers, dropdowns, flyouts above content
+   - z-modal   → modals, blocking dialogs above everything else
+   - z-toast   → global notifications on top of the UI
+   ========================================================= */
+
+/* Base layer (default content) */
+@utility z-base {
+	z-index: var(--z-base);
+}
+
+/* Header / navigation layer */
+@utility z-header {
+	z-index: var(--z-header);
+}
+
+/* Popover / dropdown layer */
+@utility z-popover {
+	z-index: var(--z-popover);
+}
+
+/* Modal / dialog layer */
+@utility z-modal {
+	z-index: var(--z-modal);
+}
+
+/* Toast / notification layer */
+@utility z-toast {
+	z-index: var(--z-toast);
+}
+
+/* =========================================================
+   TYPOGRAPHY COLOR UTILITIES
+   Only manage color; pair with your own font-size/weight utilities
+   ---------------------------------------------------------
+   Use:
+   - text-main    → body text
+   - text-strong  → headings, labels, emphasized text
+   - text-soft    → secondary text
+   - text-muted   → helper text, placeholders
+   - text-invert  → text on dark / accent backgrounds
+   - text-success / text-warning / text-error → semantic messages
+   ========================================================= */
+
+/* Primary text color for body content */
+@utility text-main {
+	color: var(--text-main);
+}
+
+/* Strong emphasis text (headings, labels) */
+@utility text-strong {
+	color: var(--text-strong);
+}
+
+/* Subtle text (secondary information, captions) */
+@utility text-soft {
+	color: var(--text-soft);
+}
+
+/* Low emphasis text (placeholders, hints, helper text) */
 @utility text-muted {
-	color: var(--color-text-muted);
+	color: var(--text-muted);
 }
 
-@utility section-shadow {
-	box-shadow: 0px 0px 10px 3px var(--color-shadow-soft);
+/* Text on dark or accent backgrounds */
+@utility text-invert {
+	color: var(--text-invert);
 }
 
-@utility card-shadow {
-	box-shadow: 0px 0px 15px var(--color-shadow-soft);
+/* Success state text (success messages, badges) */
+@utility text-success {
+	color: var(--success);
 }
 
-@utility profile-shadow {
-	box-shadow: 0px 0px 20px 5px var(--color-shadow-soft);
+/* Warning state text (warning messages, banners) */
+@utility text-warning {
+	color: var(--warning);
 }
 
-@utility text-gradient {
-	background-size: 200% 200%;
-	animation: gradient 6s ease infinite;
+/* Error state text (form errors, destructive copy) */
+@utility text-error {
+	color: var(--error);
 }
+
+/* =========================================================
+   OTHER UTILITY
+   ========================================================= */
 
 @utility page-title {
 	@apply text-4xl md:text-6xl font-bold mb-6 text-left;
-	@apply bg-clip-text text-transparent bg-linear-45 from-(--color-accent-primary) to-(--color-accent-secondary);
+	@apply bg-clip-text text-strong;
 }
 
-.nav-link {
-	position: relative;
+@utility gradient-border {
+	@apply relative;
+
+	&::before,
+	&::after {
+		content: "";
+		@apply w-full h-1 absolute left-0 bg-linear-30 via-(--brand-accent);
+	}
+
+	&::before {
+		@apply top-0;
+	}
+
+	&::after {
+		@apply bottom-0;
+	}
 }
 
-.nav-link::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: -4px;
-	height: 2px;
-	width: 0;
-	transition: width 0.4s ease;
-	background: linear-gradient(to right, var(--color-accent-primary), var(--color-accent-secondary));
-}
+@utility underline-slide {
+	@apply relative;
 
-.nav-link:hover::after {
-	width: 105%;
-}
+	&::after {
+		content: "";
+		@apply w-0 h-0.5 absolute -bottom-1 left-0;
+		@apply bg-accent transition-all duration-400;
+	}
 
-.gradient-border {
-	position: relative;
-}
-
-.gradient-border::before,
-.gradient-border::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	height: 3px;
-	width: 100%;
-	background: linear-gradient(to right, transparent, var(--color-accent-primary), transparent);
-}
-
-.gradient-border::before {
-	top: 0;
-}
-
-.gradient-border::after {
-	bottom: 0;
+	&:hover::after {
+		width: 105%;
+	}
 }
