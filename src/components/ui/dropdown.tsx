@@ -2,13 +2,19 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { AnimatePresence, type Variants } from "framer-motion";
 import { MotionLI, MotionUL } from "@/components/provider";
 
-import { useState } from "react";
+import { useCallback, useState, type ReactNode } from "react";
 import { cn } from "@/shared/utils/cn";
 import { ChevronDown } from "lucide-react";
 
 //  ============================== Types ====================================
 interface Props {
-	text: string;
+	trigger: ReactNode;
+	align?: "end" | "center" | "start";
+	side?: "bottom" | "left" | "right" | "top";
+	sideOffset?: number;
+	alignOffset?: number;
+	open?: boolean;
+	onOpenChange?: (prev?: boolean, next?: boolean) => void | boolean;
 	items: {
 		content: string;
 		url?: string;
@@ -17,8 +23,6 @@ interface Props {
 		disable?: boolean;
 	}[];
 	classNames?: { trigger?: string; container?: string; item?: string };
-	align?: "end" | "center" | "start";
-	side?: "bottom" | "left" | "right" | "top";
 }
 
 //  ============================== Styles ====================================
@@ -45,7 +49,7 @@ const styles = {
 };
 
 //  ============================ Motion Variants ================================
-const list: Variants = {
+const listVariants: Variants = {
 	initial: {
 		opacity: 0,
 		height: 0,
@@ -76,34 +80,47 @@ const list: Variants = {
 	},
 };
 
-const listItem = {
+const itemVariants = {
 	initial: { opacity: 0 },
 	animate: { opacity: 1 },
 	exit: { opacity: 0, transition: { delay: 0.1 } },
 };
 
 //  ============================== Components ====================================
-function Dropdown({ text, items, classNames, align = "start", side = "right" }: Props) {
-	const [open, setOpen] = useState(false);
-	const onEnter = () => setOpen(true);
-	const onLeave = () => setOpen(false);
+function Dropdown(props: Props) {
+	const [isOpen, setOpen] = useState(false);
+	const open = props.open !== undefined ? props.open : isOpen;
+	const onOpenChange = useCallback(
+		(state: boolean) => {
+			setOpen((prev) => props.onOpenChange?.(prev, state) ?? state);
+		},
+		[props],
+	);
+	const onEnter = () => onOpenChange(true);
+	const onLeave = () => onOpenChange(false);
 
 	return (
-		<DropdownMenu.Root onOpenChange={setOpen}>
+		<DropdownMenu.Root onOpenChange={onOpenChange}>
 			<span onMouseEnter={onEnter} onMouseLeave={onLeave}>
-				<DropdownMenu.Trigger className={styles.trigger(classNames?.trigger)}>
-					{text}
-					<ChevronDown className="h-4 w-4 inline" />
+				<DropdownMenu.Trigger className={styles.trigger(props.classNames?.trigger)}>
+					{props.trigger}
+					{typeof props.trigger == "string" && <ChevronDown className="h-4 w-4 inline" />}
 				</DropdownMenu.Trigger>
 
 				<AnimatePresence mode="wait">
 					{open && (
 						<DropdownMenu.Portal forceMount>
-							<DropdownMenu.Content align={align} side={side} sideOffset={8} asChild>
-								<MotionUL v={list} className={styles.container(classNames?.container)}>
-									{items.map((item, ind) => (
+							<DropdownMenu.Content
+								align={props.align}
+								side={props.side}
+								sideOffset={props.sideOffset || 8}
+								alignOffset={props.alignOffset}
+								asChild
+							>
+								<MotionUL v={listVariants} className={styles.container(props.classNames?.container)}>
+									{props.items.map((item, ind) => (
 										<DropdownMenu.Item key={ind} asChild>
-											<MotionLI v={listItem} className="mb-1 last:mb-0">
+											<MotionLI v={itemVariants} className="mb-1 last:mb-0">
 												<a
 													href={item.url}
 													target="_blank"
@@ -111,7 +128,7 @@ function Dropdown({ text, items, classNames, align = "start", side = "right" }: 
 													className={styles.item(
 														item.active,
 														item.disable,
-														classNames?.item,
+														props.classNames?.item,
 													)}
 												>
 													{item.content}

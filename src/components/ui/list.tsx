@@ -14,7 +14,8 @@ interface ListItem {
 }
 
 interface Props {
-	items: ListItem[];
+	items?: ListItem[];
+	variants?: { list?: Variants; item?: Variants };
 	classNames?: {
 		container?: string;
 		item?: string;
@@ -25,7 +26,7 @@ interface Props {
 
 const styles = {
 	container: (className?: string) =>
-		cn("z-toast p-3", "rounded-md elevation-2", "border border-main bg-surface-3 space-y-2", className),
+		cn("z-toast p-3", "rounded-md elevation-2", "border border-main bg-surface-3 space-y-1", className),
 
 	item: (active?: boolean, disable?: boolean, className?: string) =>
 		cn(
@@ -75,12 +76,12 @@ const itemVariants: Variants = {
 
 // ============================ Component ============================
 
-function List({ items, classNames }: Props) {
+function List({ items, classNames, variants }: Props) {
 	return (
 		<AnimatePresence mode="popLayout">
-			<MotionUL v={listVariants} className={styles.container(classNames?.container)}>
-				{items.map((item, ind) => (
-					<MotionLI key={ind} layout v={itemVariants}>
+			<MotionUL v={variants?.list || listVariants} className={styles.container(classNames?.container)}>
+				{items?.map((item, ind) => (
+					<MotionLI key={ind} layout v={variants?.item || itemVariants}>
 						<a
 							href={item.url}
 							onClick={item.action}
