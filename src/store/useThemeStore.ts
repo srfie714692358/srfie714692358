@@ -5,11 +5,19 @@ import { persist } from "zustand/middleware";
 export const useThemeStore = create<ThemeStore>()(
 	persist(
 		(set) => ({
-			theme: "light",
-			setTheme: (v) => set(() => ({ theme: v })),
+			theme: "",
+			setTheme: (theme) => {
+				document.documentElement.className = theme;
+				set({ theme });
+			},
 		}),
 		{
 			name: "theme-storage",
+			onRehydrateStorage: () => (state) => {
+				if (state?.theme) {
+					document.documentElement.className = state.theme;
+				}
+			},
 		},
 	),
 );
